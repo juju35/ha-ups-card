@@ -439,3 +439,22 @@ test("folding: a press in the card does not fold; leaving the page brings the de
   assert.doesNotMatch(html(mini), /class="section-title/);
   mini.disconnectedCallback();
 });
+
+test("no rewrite under a press: drawn after its release, and at once by its click", async () => {
+  const card = newCard({ collapsed: ["battery"] });
+  card.connectedCallback();
+  const before = html(card);
+  card._pressing = true;
+  card._toggled = new Map([["battery", false]]);
+  card._update();
+  assert.equal(html(card), before, "no rewrite under the pointer");
+  card._onPressEnd();
+  await flush();
+  assert.match(html(card), /Battery voltage/, "drawn right after the release");
+  card._pressing = true;
+  card._pressClick({ detail: 1 });
+  click(card, { action: "toggle_section", section: "battery" });
+  assert.doesNotMatch(html(card), /Battery voltage/, "the click draws at once");
+  card.disconnectedCallback();
+  assert.equal(card._pressing, false);
+});

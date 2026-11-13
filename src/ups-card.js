@@ -2689,6 +2689,88 @@ const isOutside = (card, ev) => {
   return !path.includes(card) && !path.some((n) => DIALOG_TAGS.has(n.tagName));
 };
 
+// "A click elsewhere" is caught on the pointer, not only on the click event: on iOS (Safari and the companion app)
+// a tap on something that is not clickable (the background, an empty spot, a card with no action) sends no click to
+// the page. It counts when the press and the release are both outside the card (a slider dragged out of the card
+// does not fold it), and a scroll does not count (the browser cancels the pointer). Keyboard clicks still go through
+// the click event.
+const watchOutside = (card, handler) => {
+  let downOutside = false;
+  const onDown = (ev) => {
+    downOutside = isOutside(card, ev);
+  };
+  const onUp = (ev) => {
+    if (downOutside && isOutside(card, ev)) handler(ev);
+    downOutside = false;
+  };
+  const onClick = (ev) => {
+    if (ev.detail === 0 && isOutside(card, ev)) handler(ev);
+  };
+  return {
+    on() {
+      document.addEventListener("pointerdown", onDown, true);
+      document.addEventListener("pointerup", onUp, true);
+      document.addEventListener("click", onClick, true);
+    },
+    // A tap (press and release at the same spot), for the tests.
+    tap(ev) {
+      onDown(ev);
+      onUp(ev);
+    },
+    off() {
+      document.removeEventListener("pointerdown", onDown, true);
+      document.removeEventListener("pointerup", onUp, true);
+      document.removeEventListener("click", onClick, true);
+    },
+  };
+};
+
+// No rewrite of the card between a press and its click: Home Assistant updates the card several times a second, and a
+// rewrite under the pointer replaces the element pressed, so that the click lands on the card itself and does nothing
+// (a button or a row that does not react). While a press is in progress (`_pressing`), a render is left pending
+// (`_dirty`): it is done at the click, or right after the release when no click follows (a drag, a scroll).
+// `_byPointer` tells a mouse or touch use from the keyboard: after a rewrite, the focus is put back only for the
+// keyboard (no focus ring after a click), and always in a text field.
+const holdUnderPress = (card, render) => {
+  const root = card.shadowRoot;
+  card._onPressEnd = () => {
+    window.removeEventListener?.("pointerup", card._onPressEnd, true);
+    window.removeEventListener?.("pointercancel", card._onPressEnd, true);
+    setTimeout(() => card._endPress(), 0);
+  };
+  card._endPress = () => {
+    card._pressing = false;
+    if (!card._dirty) return;
+    card._dirty = false;
+    render();
+  };
+  // Left in the middle of a press (see disconnectedCallback).
+  card._dropPress = () => {
+    card._pressing = false;
+    card._dirty = false;
+    window.removeEventListener?.("pointerup", card._onPressEnd, true);
+    window.removeEventListener?.("pointercancel", card._onPressEnd, true);
+  };
+  root.addEventListener?.("pointerdown", () => {
+    card._byPointer = true;
+    card._pressing = true;
+    window.addEventListener?.("pointerup", card._onPressEnd, true);
+    window.addEventListener?.("pointercancel", card._onPressEnd, true);
+  });
+  root.addEventListener?.("keydown", () => {
+    card._byPointer = false;
+  });
+  // At the click (capture: before the card acts on it) the press is over, and what the click changes is drawn at once.
+  card._pressClick = (ev) => {
+    card._pressing = false;
+    if (ev.detail === 0) card._byPointer = false;
+  };
+  root.addEventListener?.("click", card._pressClick, true);
+};
+
+// Whether the focus goes back to `el` after a rewrite (see holdUnderPress).
+const keepsFocus = (card, el) => !card._byPointer || typeof el?.selectionStart === "number";
+
 // Elements a click acts on, and how one is told from the others across renders (see _focusedSpot).
 const FOCUS_SELECTOR = "[data-action], [data-entity]";
 const focusKey = (el) => {
@@ -2710,6 +2792,7 @@ class UpsBase extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this._html = "";
+    holdUnderPress(this, () => this._update());
     this.shadowRoot.addEventListener("click", (ev) => this._onClick(ev));
     // Enter / Space on an element with the button role acts as a click, as on a <button>.
     this.shadowRoot.addEventListener("keydown", (ev) => {
@@ -2746,12 +2829,14 @@ class UpsBase extends HTMLElement {
 
   connectedCallback() {
     // A click elsewhere on the page folds the sections back to their defaults.
-    this._onOutside ??= (ev) => {
-      if (!this._toggled?.size || !isOutside(this, ev)) return;
+    this._outside ??= watchOutside(this, () => {
+      if (!this._toggled?.size) return;
       this._toggled = new Map();
       this._update();
-    };
-    document.addEventListener("click", this._onOutside, true);
+    });
+    this._outside.on();
+    // Back on the page after leaving it: rendered again in its default state.
+    if (this._hass && this._config) this._update();
     // "On battery for 4 minutes" moves on its own: re-checked every minute while the card is on the page.
     clearInterval(this._tick);
     this._tick = setInterval(() => {
@@ -2763,7 +2848,11 @@ class UpsBase extends HTMLElement {
   disconnectedCallback() {
     clearInterval(this._tick);
     this._tick = null;
-    document.removeEventListener("click", this._onOutside, true);
+    this._outside?.off();
+    this._dropPress();
+    // Left (another dashboard view, a conditional card hidden): back to the defaults, so that the card does not
+    // come back unfolded.
+    this._toggled = new Map();
   }
 
   setConfig(config) {
@@ -2801,6 +2890,12 @@ class UpsBase extends HTMLElement {
 
   _update() {
     if (!this._hass || !this._config) return;
+    // Held under a press (see holdUnderPress), drawn after its click.
+    if (this._pressing) {
+      this._dirty = true;
+      return;
+    }
+    this._dirty = false;
     const html = this._render();
     if (html !== this._html) {
       const kept = this._focusedSpot();
@@ -2814,7 +2909,7 @@ class UpsBase extends HTMLElement {
   // The focused element of the card, as what identifies it in the next render.
   _focusedSpot() {
     const el = this.shadowRoot.activeElement;
-    if (!el?.dataset) return null;
+    if (!el?.dataset || !keepsFocus(this, el)) return null;
     const key = focusKey(el);
     if (!key) return null;
     const index = this._focusables(key).indexOf(el);
@@ -3329,9 +3424,9 @@ class UpsCard extends UpsBase {
 class UpsMiniCard extends UpsCard {
   constructor() {
     super();
-    this._onUnzoom = (ev) => {
-      if (this._zoomed && isOutside(this, ev)) this._setZoom(false);
-    };
+    this._unzoom = watchOutside(this, () => {
+      if (this._zoomed) this._setZoom(false);
+    });
   }
 
   static getConfigElement() {
@@ -3340,12 +3435,14 @@ class UpsMiniCard extends UpsCard {
 
   connectedCallback() {
     super.connectedCallback();
-    document.addEventListener("click", this._onUnzoom, true);
+    this._unzoom.on();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    document.removeEventListener("click", this._onUnzoom, true);
+    this._unzoom.off();
+    // Back to the compact view once off the screen.
+    this._zoomed = false;
   }
 
   getCardSize() {

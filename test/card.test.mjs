@@ -322,9 +322,9 @@ test("sections fold and unfold, a click elsewhere brings the defaults back", () 
   assert.doesNotMatch(html(card), /Battery voltage/);
   click(card, { action: "toggle_section", section: "battery" });
   assert.match(html(card), /Battery voltage/);
-  card._onOutside({ composedPath: () => [{ tagName: "HA-MORE-INFO-DIALOG" }] });
+  card._outside.tap({ composedPath: () => [{ tagName: "HA-MORE-INFO-DIALOG" }] });
   assert.match(html(card), /Battery voltage/, "a click in a dialog keeps it");
-  card._onOutside({ composedPath: () => [{ tagName: "DIV" }] });
+  card._outside.tap({ composedPath: () => [{ tagName: "DIV" }] });
   assert.doesNotMatch(html(card), /Battery voltage/);
   card.disconnectedCallback();
 });
@@ -349,7 +349,7 @@ test("the mini card is compact, its detail button switches to the full card and 
   assert.deepEqual({ ...card.getGridOptions() }, { columns: 12, min_columns: 6, rows: "auto" });
   await flush();
   assert.equal(hass.ws.length, 1);
-  card._onUnzoom({ composedPath: () => [{ tagName: "DIV" }] });
+  card._unzoom.tap({ composedPath: () => [{ tagName: "DIV" }] });
   assert.doesNotMatch(html(card), /class="section-title/);
   assert.doesNotMatch(html(newCard({ zoom: false }, hass, uc.UpsMiniCard)), /class="zoom"/);
   card.disconnectedCallback();
@@ -418,4 +418,43 @@ test("battery_replaced overrides the UPS battery date", () => {
   const h = html(newCard({ battery_replaced: ten }));
   const year = new Date(Date.now() - 10 * DAY).getUTCFullYear();
   assert.match(h, new RegExp(`Battery installed</span></div><div class="v">[A-Z][a-z]{2} \\d{1,2}, ${year}`));
+});
+
+test("folding: a press in the card does not fold; leaving the page brings the defaults and the compact view back", () => {
+  const card = newCard({ collapsed: ["battery"] });
+  card.connectedCallback();
+  click(card, { action: "toggle_section", section: "battery" });
+  card._outside.tap({ composedPath: () => [card] });
+  assert.match(html(card), /Battery voltage/, "a slider pressed in the card and released outside does not fold it");
+  card.disconnectedCallback();
+  card.connectedCallback();
+  assert.doesNotMatch(html(card), /Battery voltage/);
+  card.disconnectedCallback();
+  const mini = newCard({}, makeHass(), uc.UpsMiniCard);
+  mini.connectedCallback();
+  click(mini, { action: "zoom" });
+  assert.match(html(mini), /class="section-title/);
+  mini.disconnectedCallback();
+  mini.connectedCallback();
+  assert.doesNotMatch(html(mini), /class="section-title/);
+  mini.disconnectedCallback();
+});
+
+test("no rewrite under a press: drawn after its release, and at once by its click", async () => {
+  const card = newCard({ collapsed: ["battery"] });
+  card.connectedCallback();
+  const before = html(card);
+  card._pressing = true;
+  card._toggled = new Map([["battery", false]]);
+  card._update();
+  assert.equal(html(card), before, "no rewrite under the pointer");
+  card._onPressEnd();
+  await flush();
+  assert.match(html(card), /Battery voltage/, "drawn right after the release");
+  card._pressing = true;
+  card._pressClick({ detail: 1 });
+  click(card, { action: "toggle_section", section: "battery" });
+  assert.doesNotMatch(html(card), /Battery voltage/, "the click draws at once");
+  card.disconnectedCallback();
+  assert.equal(card._pressing, false);
 });

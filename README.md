@@ -8,6 +8,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/juju35/ha-ups-card/blob/main/LICENSE)
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/julienstep9)
 
+<p align="center"><img src="https://raw.githubusercontent.com/juju35/ha-ups-card/main/images/icon.svg" alt="UPS Card" width="120"></p>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/juju35/ha-ups-card/main/images/nut.png" alt="Network UPS Tools" width="64">&nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/juju35/ha-ups-card/main/images/apcupsd.png" alt="APC UPS Daemon" width="64">

@@ -387,6 +387,13 @@ test("the editors keep the YAML minimal and list the UPS devices", () => {
   mini.setConfig({ type: "custom:ups-mini-card" });
   mini.hass = makeHass();
   assert.ok(mini._form.schema.find((s) => s.type === "grid").schema.some((s) => s.name === "zoom"));
+  // The mini card's detailed view is the full card: its editor offers the full card's options too.
+  const names = (form) => form.schema.flatMap((s) => (s.type === "grid" ? s.schema.map((g) => g.name) : [s.name]));
+  for (const name of names(ed._form)) assert.ok(names(mini._form).includes(name), name);
+  for (const name of ["show_power", "show_battery", "show_outages", "collapsed", "history_days", "max_outages", "battery_life", "battery_replaced"]) {
+    assert.ok(names(mini._form).includes(name), name);
+  }
+  assert.ok(!names(ed._form).includes("zoom"));
   assert.equal(ed._form.computeLabel({ name: "status" }), "Status");
   assert.equal(uc.UpsCard.getStubConfig(makeHass()).device, "eaton");
 });

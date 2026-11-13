@@ -3656,17 +3656,10 @@ class UpsCardEditor extends UpsEditorBase {
   }
 }
 
-class UpsMiniCardEditor extends UpsEditorBase {
+// The options of the full card, which its detailed view shows, and the zoom button.
+class UpsMiniCardEditor extends UpsCardEditor {
   static get toggles() {
-    return [...UpsEditorBase.toggles, ["zoom", true]];
-  }
-
-  static get defaults() {
-    return { ...DEFAULTS };
-  }
-
-  static extraFields() {
-    return [{ name: "low_runtime", selector: { number: { min: 1, max: 240, mode: "box", unit_of_measurement: "min" } } }];
+    return [...UpsCardEditor.toggles, ["zoom", true]];
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "ha-ups-card",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lovelace cards for Home Assistant to monitor UPS (uninterruptible power supplies) from Network UPS Tools, APC UPS Daemon or generic sensors.",
   "private": true,
   "type": "module",

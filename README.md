@@ -154,15 +154,15 @@ language: fr
 | `show_subtitle` | both | `true` | Show the brand and model under the title (full card) |
 | `show_alerts` | both | `true` | Show the alerts (the mini card shows the most important one) |
 | `low_runtime` | both | `10` | Runtime left, in minutes, under which the runtime turns red and a UPS on battery reads **Low battery** (orange under twice this value) |
-| `zoom` | mini | `true` | Detail button at the top right of the mini card: it shows the full card's content (with the same options, so `show_power`, `collapsed`, `history_days`… can be set on the mini card too) and switches back; a click outside the card also brings the compact view back. `false` removes the button |
-| `show_power` | full | `true` | Power section |
-| `show_battery` | full | `true` | Battery section |
-| `show_outages` | full | `true` | Outage history section |
-| `collapsed` | full | `[]` | Sections folded by default, among `power`, `battery` and `outages`. Click a section title (or Tab to it and press Enter or Space) to fold or unfold it |
-| `history_days` | full | `30` | Days of history read for the outages (1 to 365, within what the Recorder keeps: 10 days by default) |
-| `max_outages` | full | `5` | Number of latest outages listed |
-| `battery_life` | full | `4` | Years after which the battery should be replaced, counted from its installation date |
-| `battery_replaced` | full | — | Date the battery was installed (`YYYY-MM-DD`), when the UPS does not report it or after you replaced it |
+| `zoom` | mini | `true` | Detail button at the top right of the mini card: it shows the full card's content (with the same options, so `show_power`, `collapsed`, `history_days`… can be set on the mini card too, in YAML or in its visual editor) and switches back; a click outside the card also brings the compact view back. `false` removes the button |
+| `show_power` | both | `true` | Power section |
+| `show_battery` | both | `true` | Battery section |
+| `show_outages` | both | `true` | Outage history section |
+| `collapsed` | both | `[]` | Sections folded by default, among `power`, `battery` and `outages`. Click a section title (or Tab to it and press Enter or Space) to fold or unfold it |
+| `history_days` | both | `30` | Days of history read for the outages (1 to 365, within what the Recorder keeps: 10 days by default) |
+| `max_outages` | both | `5` | Number of latest outages listed |
+| `battery_life` | both | `4` | Years after which the battery should be replaced, counted from its installation date |
+| `battery_replaced` | both | — | Date the battery was installed (`YYYY-MM-DD`), when the UPS does not report it or after you replaced it |
 | `language` | both | Auto | Force language: `en`, `fr`, `de`, `es`, `it`, `nl`, `pt`, `pl`, `sr`, `sr-Latn`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
 
 ### Generic sensors

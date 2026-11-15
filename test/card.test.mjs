@@ -6,6 +6,12 @@ import { load } from "./load.mjs";
 const uc = load();
 const DAY = 86400e3;
 
+// Freeze the clock for the whole test module: the cards read Date.now() at render time,
+// while the mock states are shifted once at load. Without a frozen clock the elapsed time
+// drifts by however long the run takes and can tip a value across a minute boundary.
+const FROZEN_NOW = Date.now();
+Date.now = () => FROZEN_NOW;
+
 // Mock states shifted so that NOW is now: the cards read Date.now().
 const shift = Date.now() - NOW;
 const moved = (st) =>

@@ -104,6 +104,11 @@ const STRINGS = {
     lang_auto: "Automatic",
     zoom: "Detail button",
     zoom_helper: "Button at the top right that switches the mini card to the full card and back",
+    illustration: "Animated illustration",
+    illustration_theme: "Illustration theme",
+    theme_auto: "Automatic (sun or dark theme)",
+    theme_day: "Day",
+    theme_night: "Night",
     zoom_in: "Show the full card",
     zoom_out: "Show the compact card",
   },
@@ -198,6 +203,11 @@ const STRINGS = {
     lang_auto: "Automatique",
     zoom: "Bouton détail",
     zoom_helper: "Bouton en haut à droite qui bascule la mini-carte vers la carte complète et inversement",
+    illustration: "Illustration animée",
+    illustration_theme: "Thème de l’illustration",
+    theme_auto: "Automatique (soleil ou thème sombre)",
+    theme_day: "Jour",
+    theme_night: "Nuit",
     zoom_in: "Afficher la carte complète",
     zoom_out: "Afficher la carte compacte",
   },
@@ -292,6 +302,11 @@ const STRINGS = {
     lang_auto: "Automatisch",
     zoom: "Detailschaltfläche",
     zoom_helper: "Schaltfläche oben rechts, die die Mini-Karte zur vollständigen Karte umschaltet und zurück",
+    illustration: "Animierte Illustration",
+    illustration_theme: "Thema der Illustration",
+    theme_auto: "Automatisch (Sonne oder dunkles Design)",
+    theme_day: "Tag",
+    theme_night: "Nacht",
     zoom_in: "Vollständige Karte anzeigen",
     zoom_out: "Kompakte Karte anzeigen",
   },
@@ -386,6 +401,11 @@ const STRINGS = {
     lang_auto: "Automático",
     zoom: "Botón de detalle",
     zoom_helper: "Botón arriba a la derecha que cambia la minitarjeta a la tarjeta completa y viceversa",
+    illustration: "Ilustración animada",
+    illustration_theme: "Tema de la ilustración",
+    theme_auto: "Automático (sol o tema oscuro)",
+    theme_day: "Día",
+    theme_night: "Noche",
     zoom_in: "Mostrar la tarjeta completa",
     zoom_out: "Mostrar la tarjeta compacta",
   },
@@ -480,6 +500,11 @@ const STRINGS = {
     lang_auto: "Automatica",
     zoom: "Pulsante dettaglio",
     zoom_helper: "Pulsante in alto a destra che passa dalla mini scheda alla scheda completa e viceversa",
+    illustration: "Illustrazione animata",
+    illustration_theme: "Tema dell’illustrazione",
+    theme_auto: "Automatico (sole o tema scuro)",
+    theme_day: "Giorno",
+    theme_night: "Notte",
     zoom_in: "Mostra la scheda completa",
     zoom_out: "Mostra la scheda compatta",
   },
@@ -574,6 +599,11 @@ const STRINGS = {
     lang_auto: "Automatisch",
     zoom: "Detailknop",
     zoom_helper: "Knop rechtsboven die de minikaart naar de volledige kaart wisselt en terug",
+    illustration: "Geanimeerde illustratie",
+    illustration_theme: "Thema van de illustratie",
+    theme_auto: "Automatisch (zon of donker thema)",
+    theme_day: "Dag",
+    theme_night: "Nacht",
     zoom_in: "Volledige kaart tonen",
     zoom_out: "Compacte kaart tonen",
   },
@@ -668,6 +698,11 @@ const STRINGS = {
     lang_auto: "Automático",
     zoom: "Botão de detalhe",
     zoom_helper: "Botão no canto superior direito que alterna o mini cartão para o cartão completo e vice-versa",
+    illustration: "Ilustração animada",
+    illustration_theme: "Tema da ilustração",
+    theme_auto: "Automático (sol ou tema escuro)",
+    theme_day: "Dia",
+    theme_night: "Noite",
     zoom_in: "Mostrar o cartão completo",
     zoom_out: "Mostrar o cartão compacto",
   },
@@ -762,6 +797,11 @@ const STRINGS = {
     lang_auto: "Automatyczny",
     zoom: "Przycisk szczegółów",
     zoom_helper: "Przycisk w prawym górnym rogu przełączający minikartę na pełną kartę i z powrotem",
+    illustration: "Animowana ilustracja",
+    illustration_theme: "Motyw ilustracji",
+    theme_auto: "Automatycznie (słońce lub ciemny motyw)",
+    theme_day: "Dzień",
+    theme_night: "Noc",
     zoom_in: "Pokaż pełną kartę",
     zoom_out: "Pokaż kompaktową kartę",
   },
@@ -856,6 +896,11 @@ const STRINGS = {
     lang_auto: "Аутоматски",
     zoom: "Дугме за детаље",
     zoom_helper: "Дугме горе десно које пребацује мини картицу на пуну картицу и назад",
+    illustration: "Анимирана илустрација",
+    illustration_theme: "Тема илустрације",
+    theme_auto: "Аутоматски (сунце или тамна тема)",
+    theme_day: "Дан",
+    theme_night: "Ноћ",
     zoom_in: "Прикажи пуну картицу",
     zoom_out: "Прикажи компактну картицу",
   },
@@ -950,6 +995,11 @@ const STRINGS = {
     lang_auto: "Automatski",
     zoom: "Dugme za detalje",
     zoom_helper: "Dugme gore desno koje prebacuje mini karticu na punu karticu i nazad",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Automatski (sunce ili tamna tema)",
+    theme_day: "Dan",
+    theme_night: "Noć",
     zoom_in: "Prikaži punu karticu",
     zoom_out: "Prikaži kompaktnu karticu",
   },
@@ -1044,6 +1094,11 @@ const STRINGS = {
     lang_auto: "Automat",
     zoom: "Buton detalii",
     zoom_helper: "Buton din dreapta sus care comută mini cardul la cardul complet și înapoi",
+    illustration: "Ilustrație animată",
+    illustration_theme: "Tema ilustrației",
+    theme_auto: "Automat (soare sau temă întunecată)",
+    theme_day: "Zi",
+    theme_night: "Noapte",
     zoom_in: "Afișează cardul complet",
     zoom_out: "Afișează cardul compact",
   },
@@ -1138,6 +1193,11 @@ const STRINGS = {
     lang_auto: "Automatisk",
     zoom: "Detaljeknap",
     zoom_helper: "Knap øverst til højre, der skifter minikortet til det fulde kort og tilbage",
+    illustration: "Animeret illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatisk (sol eller mørkt tema)",
+    theme_day: "Dag",
+    theme_night: "Nat",
     zoom_in: "Vis det fulde kort",
     zoom_out: "Vis det kompakte kort",
   },
@@ -1232,6 +1292,11 @@ const STRINGS = {
     lang_auto: "Automatiskt",
     zoom: "Detaljknapp",
     zoom_helper: "Knapp uppe till höger som växlar minikortet till hela kortet och tillbaka",
+    illustration: "Animerad illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatiskt (sol eller mörkt tema)",
+    theme_day: "Dag",
+    theme_night: "Natt",
     zoom_in: "Visa hela kortet",
     zoom_out: "Visa det kompakta kortet",
   },
@@ -1326,6 +1391,11 @@ const STRINGS = {
     lang_auto: "Автоматично",
     zoom: "Бутон за детайли",
     zoom_helper: "Бутон горе вдясно, който превключва мини картата към пълната карта и обратно",
+    illustration: "Анимирана илюстрация",
+    illustration_theme: "Тема на илюстрацията",
+    theme_auto: "Автоматично (слънце или тъмна тема)",
+    theme_day: "Ден",
+    theme_night: "Нощ",
     zoom_in: "Покажи пълната карта",
     zoom_out: "Покажи компактната карта",
   },
@@ -1420,6 +1490,11 @@ const STRINGS = {
     lang_auto: "Автоматически",
     zoom: "Кнопка подробностей",
     zoom_helper: "Кнопка в правом верхнем углу, переключающая мини-карточку на полную и обратно",
+    illustration: "Анимированная иллюстрация",
+    illustration_theme: "Тема иллюстрации",
+    theme_auto: "Автоматически (солнце или тёмная тема)",
+    theme_day: "День",
+    theme_night: "Ночь",
     zoom_in: "Показать полную карточку",
     zoom_out: "Показать компактную карточку",
   },
@@ -1514,6 +1589,11 @@ const STRINGS = {
     lang_auto: "Автоматично",
     zoom: "Кнопка деталей",
     zoom_helper: "Кнопка вгорі праворуч, що перемикає міні-картку на повну й назад",
+    illustration: "Анімована ілюстрація",
+    illustration_theme: "Тема ілюстрації",
+    theme_auto: "Автоматично (сонце або темна тема)",
+    theme_day: "День",
+    theme_night: "Ніч",
     zoom_in: "Показати повну картку",
     zoom_out: "Показати компактну картку",
   },
@@ -1608,6 +1688,11 @@ const STRINGS = {
     lang_auto: "Automatikus",
     zoom: "Részletek gomb",
     zoom_helper: "Jobb felső gomb, amely a mini kártyát a teljes kártyára váltja és vissza",
+    illustration: "Animált illusztráció",
+    illustration_theme: "Az illusztráció témája",
+    theme_auto: "Automatikus (nap vagy sötét téma)",
+    theme_day: "Nappal",
+    theme_night: "Éjszaka",
     zoom_in: "Teljes kártya megjelenítése",
     zoom_out: "Kompakt kártya megjelenítése",
   },
@@ -1702,6 +1787,11 @@ const STRINGS = {
     lang_auto: "Automaticky",
     zoom: "Tlačidlo detailu",
     zoom_helper: "Tlačidlo vpravo hore, ktoré prepína minikartu na úplnú kartu a späť",
+    illustration: "Animovaná ilustrácia",
+    illustration_theme: "Téma ilustrácie",
+    theme_auto: "Automaticky (slnko alebo tmavá téma)",
+    theme_day: "Deň",
+    theme_night: "Noc",
     zoom_in: "Zobraziť úplnú kartu",
     zoom_out: "Zobraziť kompaktnú kartu",
   },
@@ -1796,6 +1886,11 @@ const STRINGS = {
     lang_auto: "Automaticky",
     zoom: "Tlačítko detailu",
     zoom_helper: "Tlačítko vpravo nahoře, které přepíná minikartu na úplnou kartu a zpět",
+    illustration: "Animovaná ilustrace",
+    illustration_theme: "Motiv ilustrace",
+    theme_auto: "Automaticky (slunce nebo tmavý motiv)",
+    theme_day: "Den",
+    theme_night: "Noc",
     zoom_in: "Zobrazit úplnou kartu",
     zoom_out: "Zobrazit kompaktní kartu",
   },
@@ -1890,6 +1985,11 @@ const STRINGS = {
     lang_auto: "Samodejno",
     zoom: "Gumb za podrobnosti",
     zoom_helper: "Gumb zgoraj desno, ki preklopi mini kartico na polno kartico in nazaj",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Samodejno (sonce ali temna tema)",
+    theme_day: "Dan",
+    theme_night: "Noč",
     zoom_in: "Prikaži polno kartico",
     zoom_out: "Prikaži kompaktno kartico",
   },
@@ -1984,6 +2084,11 @@ const STRINGS = {
     lang_auto: "Automātiski",
     zoom: "Detaļu poga",
     zoom_helper: "Poga augšējā labajā stūrī, kas pārslēdz mini karti uz pilno karti un atpakaļ",
+    illustration: "Animēta ilustrācija",
+    illustration_theme: "Ilustrācijas motīvs",
+    theme_auto: "Automātiski (saule vai tumšais motīvs)",
+    theme_day: "Diena",
+    theme_night: "Nakts",
     zoom_in: "Rādīt pilno karti",
     zoom_out: "Rādīt kompakto karti",
   },
@@ -2078,6 +2183,11 @@ const STRINGS = {
     lang_auto: "Αυτόματα",
     zoom: "Κουμπί λεπτομερειών",
     zoom_helper: "Κουμπί πάνω δεξιά που αλλάζει τη μίνι κάρτα στην πλήρη κάρτα και πίσω",
+    illustration: "Κινούμενη εικονογράφηση",
+    illustration_theme: "Θέμα εικονογράφησης",
+    theme_auto: "Αυτόματα (ήλιος ή σκούρο θέμα)",
+    theme_day: "Ημέρα",
+    theme_night: "Νύχτα",
     zoom_in: "Εμφάνιση πλήρους κάρτας",
     zoom_out: "Εμφάνιση συμπαγούς κάρτας",
   },
@@ -2088,6 +2198,8 @@ const STRINGS = {
 // ---------------------------------------------------------------------------
 
 const ICONS = {
+  // Material Design Icons "battery-charging-outline": the banner's badge.
+  ups_mdi: "M16 20H8V6h8m.67-2H15V2H9v2H7.33A1.33 1.33 0 006 5.33v15.34C6 21.4 6.6 22 7.33 22h9.34A1.33 1.33 0 0018 20.67V5.33C18 4.6 17.4 4 16.67 4M11 18v-4H9l4-7v4h2l-4 7z",
   ups: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4zm6.5 2L9 12.5h2.6L10.5 18 15 11.2h-2.6z",
   battery: "M9.5 2h5v2H16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h1.5z",
   clock: "M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-.75 3h1.5v5.3l4.4 2.6-.75 1.3-5.15-3.05z",
@@ -2552,6 +2664,94 @@ const PICTURE_STYLE = `
 `;
 
 // ---------------------------------------------------------------------------
+// Illustrated header ("banner"): the UPS in its technical room
+// ---------------------------------------------------------------------------
+
+// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme
+// (an unknown or unavailable sun leaves the theme alone to decide).
+const isNight = (hass, config) => {
+  if (config.illustration_theme === "night") return true;
+  if (config.illustration_theme === "day") return false;
+  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
+};
+
+// The banner picture, 200 × 80 drawn at the right of the banner (preserveAspectRatio xMaxYMax): a technical room
+// wall with its cable tray and a small network box, then the card's own UPS (upsSvg, its state and animations),
+// drawn big, standing on the 10 px ground strip under the banner. `uid` keeps each card's gradient apart.
+const UPS_SCALE = 0.86;
+const upsScene = (uid, key, pct) => {
+  const ty = 80 - 94 * UPS_SCALE;
+  const tx = 197 - 121 * UPS_SCALE;
+  const ups = upsSvg(key, pct).replace("<svg ", '<svg width="124" height="100" ');
+  return `<svg class="scene" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <defs><radialGradient id="uc-shadow-${uid}"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+    <g class="uc-wall">${[20, 40, 60].map((y) => `<line x1="0" y1="${y}" x2="200" y2="${y}"/>`).join("")}</g>
+    <path class="uc-tray" d="M0 8H200"/>
+    <path class="uc-wire" d="M10 8V40"/>
+    <rect class="uc-box" x="18" y="20" width="22" height="16" rx="2"/>
+    <circle class="uc-led" cx="24" cy="28" r="1.4"/><circle class="uc-led late" cx="29" cy="28" r="1.4"/>
+    <ellipse cx="${(tx + 62 * UPS_SCALE).toFixed(1)}" cy="79.5" rx="34" ry="2.6" fill="url(#uc-shadow-${uid})"/>
+    <g transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${UPS_SCALE})">${ups}</g>
+  </svg>`;
+};
+
+const BANNER_STYLE = `
+  .banner { position: relative; overflow: hidden; height: 90px; --g: 10px; --sw: min(200px, 54cqw);
+            background: #e7eaee; --sky-text: #0d2a45; --sky-muted: #3b5b78; }
+  .banner.night { background: #232a36; --sky-text: #fff; --sky-muted: rgba(255,255,255,.78); }
+  .banner .scene { position: absolute; right: 0; bottom: var(--g); height: calc(100% - var(--g)); width: var(--sw); overflow: visible; }
+  /* The scene's left end (tray, wall box) fades under the text. */
+  .banner .scene { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0, rgba(0,0,0,.35) 12%, #000 42%); mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0, rgba(0,0,0,.35) 12%, #000 42%); }
+  .banner .ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--g); background: #9aa1a9; box-shadow: inset 0 2px 0 #b5bbc2; }
+  .banner.night .ground { background: #2c323b; box-shadow: inset 0 2px 0 #39414c; }
+  .uc-wall line { stroke: #d6dbe1; stroke-width: .8; } .night .uc-wall line { stroke: #2e3746; }
+  .uc-tray { stroke: #c4cbd3; stroke-width: 3; } .night .uc-tray { stroke: #3a4456; }
+  .uc-wire { fill: none; stroke: #2f80ed; stroke-width: 1.6; stroke-dasharray: 3 4; animation: uc-wire 1s linear infinite; }
+  .uc-box { fill: #fff; stroke: #c4cbd3; } .night .uc-box { fill: #2e3746; stroke: #455066; }
+  .uc-led { fill: #43c463; animation: uc-led 1.2s steps(2) infinite; } .uc-led.late { animation-delay: .4s; }
+  @keyframes uc-wire { to { stroke-dashoffset: -14; } }
+  @keyframes uc-led { 50% { opacity: .2; } }
+  .banner .ups { overflow: visible; }
+  .night .ups .case { stroke: #55606e; } .night .ups .edge { fill: #4b5460; }
+  /* Title and state on the wall at the left, the scene at the right. */
+  .banner .head { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: calc(var(--sw) - 60px); display: flex; align-items: center;
+                  gap: 10px; padding: 8px 8px 8px 14px; color: var(--sky-text); min-width: 0; }
+  .banner .titles { flex: 1 1 auto; min-width: 0; }
+  .banner .name { font-size: 16px; font-weight: 500; }
+  .banner .sub { font-size: 13px; color: var(--sky-muted); }
+  /* The round badge: the MDI UPS icon in the state color, the integration's logo at its bottom right. */
+  .banner .type-icon { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-tint) 28%, transparent); }
+  .banner .type-icon .icon.type { fill: color-mix(in srgb, var(--uc-tint) 82%, #0d2a45); }
+  .banner.night .type-icon { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+  .banner.night .type-icon .icon.type { fill: color-mix(in srgb, var(--uc-tint) 75%, #fff); }
+  .banner .type-icon .logo { padding: 2px; box-sizing: border-box; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }
+  /* The mini card's detail button: a frosted round button in the banner's top-right corner. */
+  .banner .zoom { all: unset; position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; cursor: pointer; width: 24px; height: 24px;
+                  border-radius: 50%; display: grid; place-items: center; box-sizing: border-box; color: #33506b; background: rgba(255,255,255,.55);
+                  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .banner .zoom .icon { width: 16px; height: 16px; }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #ffffff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #ffffff; }
+  .banner .zoom:focus-visible { outline: 2px solid var(--primary-color, #03a9f4); outline-offset: 2px; }
+  .banner .head .titles { flex: 1 1 0; min-width: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+  .tstack { display: flex; flex-direction: column; gap: 1px; align-items: flex-start; min-width: 0; width: 100%; }
+  .tstack > * { max-width: 100%; }
+  /* The status pill on the banner: the status colour on frosted glass. */
+  .banner .chip { display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; margin: 0; max-width: 51%; padding: 1px 8px; border-radius: 12px;
+                  font-size: 11px; font-weight: 500; line-height: 16px; white-space: nowrap; overflow: hidden; box-sizing: border-box;
+                  background: color-mix(in srgb, var(--c, var(--uc-accent)) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c, var(--uc-accent)) 45%, #0d2a45); }
+  .banner.night .chip { background: color-mix(in srgb, var(--c, var(--uc-accent)) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c, var(--uc-accent)) 35%, #ffffff); }
+  .banner .chip .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--c, var(--uc-accent)); }
+  .banner .chip .chip-text { display: inline; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  /* The mini card: the scene steps aside for the detail button in the top-right corner (5 + 24 px), its cable tray
+     ending 7 px left of it, at full size. Narrow card: no room for the scene beside the text, the wall alone stays. */
+  .banner:has(> .zoom) .scene { right: 36px; }
+  .banner:has(> .zoom) .head { right: calc(var(--sw) - 24px); }
+  @container uc-card (max-width: 280px) { .banner .scene { display: none; } .banner .head, .banner:has(> .zoom) .head { right: 30px; } }
+`;
+
+// ---------------------------------------------------------------------------
 // Styles
 // ---------------------------------------------------------------------------
 
@@ -2560,7 +2760,7 @@ const BASE_STYLE = `
           --uc-crit: var(--error-color, #db4437); --uc-idle: var(--disabled-text-color, #9e9e9e); --uc-active: var(--info-color, #039be5);
           /* Text in a state color is mixed with the text color so that it reads at 4.5:1 at least. */
           --uc-accent-text: color-mix(in srgb, var(--uc-accent) 50%, var(--primary-text-color)); }
-  ha-card { overflow: hidden; container-type: inline-size; }
+  ha-card { overflow: hidden; container: uc-card / inline-size; }
   /* A size container has no width of its own: this zero-height grid gives the card a natural width without a minimum,
      so that it still shrinks to its track in a grid or a flex row. */
   :host { display: block; min-width: 0; --uc-natural-width: 360px; }
@@ -2580,10 +2780,8 @@ const BASE_STYLE = `
   .bar > div { height: 100%; border-radius: 3px; background: var(--c, var(--uc-ok)); transition: width .6s ease; }
   /* Title row: icon, titles, status chip (aligned on the title line) and the mini card's detail button. */
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
-  /* With a subtitle, the chip stays on the title's line (16 px × 1.25 + 12 px subtitle line, centered: 14.4 px up). */
-  .header:has(.sub) > .chip { margin-bottom: 14.4px; }
-  .titles { flex: 1 1 0; min-width: 5ch; }
-  :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
+  .titles { flex: 1 1 0; min-width: 0; }
+  :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .type-icon { position: relative; display: flex; flex: none; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center;
@@ -2611,12 +2809,24 @@ const BASE_STYLE = `
   .zoom .icon { width: 14px; height: 14px; }
   .zoom:hover { background: color-mix(in srgb, var(--uc-idle) 18%, transparent); color: var(--primary-text-color); }
   .zoom:focus-visible { outline: 2px solid var(--primary-color, var(--uc-accent)); outline-offset: 1px; }
-  /* Narrow card: the status chip keeps only its colored dot (its text stays in title and aria-label). */
-  @container (max-width: 230px) {
-    .chip { padding: 4px; flex: none; }
-    .chip-text { display: none; }
-    .header { gap: 6px; }
-  }
+  @container uc-card (max-width: 230px) { .header { gap: 6px; } }
+  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+     whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
+     title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
+     measurement (see _fitPill), so that every language and every width gets it right. */
+  .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
+  .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
+  .titles .trow > .chip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .titles.below > * { max-width: 100%; }
+  .titles.below .trow { display: contents; }
+  .titles.below .trow > .name { max-width: 100%; }
+  .titles.below .trow > .chip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
+  .banner .titles.below .trow > .chip { max-width: none; }
+  .titles.below :is(.sub) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.dotonly .trow > .chip { padding: 4px; } .titles.dotonly .trow > .chip .chip-text { display: none; }
+  @container uc-card (max-width: 200px) { .titles .trow > .chip { padding: 4px; } .titles .trow > .chip .chip-text { display: none; } }
 `;
 
 const FULL_STYLE = `
@@ -2655,12 +2865,12 @@ const FULL_STYLE = `
   .outage .dur { font-weight: 500; white-space: nowrap; }
   .outage.ongoing .dur { color: color-mix(in srgb, var(--uc-warn) 50%, var(--primary-text-color)); }
   .msg { font-size: 12px; color: var(--secondary-text-color); padding: 4px 2px; }
-  @container (max-width: 300px) {
+  @container uc-card (max-width: 300px) {
     .picture { width: 80px; height: 66px; }
     .hero { gap: 10px; }
     .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  @container (max-width: 200px) {
+  @container uc-card (max-width: 200px) {
     .picture { display: none; }
     .batt .pct { font-size: 24px; }
     .tiles { grid-template-columns: minmax(0, 1fr); }
@@ -2677,7 +2887,7 @@ const MINI_STYLE = `
   .batt .bar { flex: 1; }
   .batt .v { font-weight: 500; min-width: 40px; text-align: right; }
   .alert { padding: 6px 8px; font-size: 12px; }
-  @container (max-width: 220px) {
+  @container uc-card (max-width: 220px) {
     .picture { display: none; }
   }
 `;
@@ -2787,9 +2997,12 @@ const CHARGING_WINDOW_MS = 12 * 3600 * 1000;
 // Cards
 // ---------------------------------------------------------------------------
 
+let _ucUid = 0;
+
 class UpsBase extends HTMLElement {
   constructor() {
     super();
+    this._uid = ++_ucUid;
     this.attachShadow({ mode: "open" });
     this._html = "";
     holdUnderPress(this, () => this._update());
@@ -2824,7 +3037,7 @@ class UpsBase extends HTMLElement {
     const { dev } = findDevice(h, this._config);
     if (!dev) return null;
     const ids = Object.values(dev.entities);
-    return [h.entities, h.devices, h.language, h.locale, h.formatEntityState, h.themes?.darkMode, this._history, this._minute, ...ids.map((id) => h.states[id])];
+    return [h.entities, h.devices, h.language, h.locale, h.formatEntityState, h.themes?.darkMode, h.states["sun.sun"]?.state, this._history, this._minute, ...ids.map((id) => h.states[id])];
   }
 
   connectedCallback() {
@@ -2835,6 +3048,18 @@ class UpsBase extends HTMLElement {
       this._update();
     });
     this._outside.on();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._resize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._fitWidth) return;
+        this._fitWidth = w;
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._resize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
     // Back on the page after leaving it: rendered again in its default state.
     if (this._hass && this._config) this._update();
     // "On battery for 4 minutes" moves on its own: re-checked every minute while the card is on the page.
@@ -2849,6 +3074,8 @@ class UpsBase extends HTMLElement {
     clearInterval(this._tick);
     this._tick = null;
     this._outside?.off();
+    this._resize?.disconnect();
+    this._fitWidth = null;
     this._dropPress();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, so that the card does not
     // come back unfolded.
@@ -2867,6 +3094,45 @@ class UpsBase extends HTMLElement {
     this._lastDeps = null;
     this._history = null;
     this._update();
+  }
+
+  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
+  // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
+  // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
+  // beside the title (.titles.dotonly). Measured in fractional pixels.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector(".trow");
+      const chips = row ? [...row.querySelectorAll(":scope > .chip")] : [];
+      if (!chips.length || !row.getBoundingClientRect) continue;
+      t.classList.remove("below", "dotonly");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      let need = -gap;
+      if (name && getComputedStyle(name).display !== "none") {
+        name.style.flex = "none";
+        need = name.getBoundingClientRect().width;
+        name.style.flex = "";
+      }
+      for (const w of widths) need += gap + w;
+      const room = row.getBoundingClientRect().width + 0.01;
+      if (need <= room) continue;
+      t.classList.add("below");
+      const banner = t.closest(".banner");
+      const cut = !banner && widths.some((w) => w > room);
+      let out = false;
+      if (banner) {
+        const b = banner.getBoundingClientRect();
+        const floor = b.bottom - (banner.querySelector(".ground")?.getBoundingClientRect().height ?? 10) + 0.5;
+        out = [...t.querySelectorAll(".name, .sub, .chip")].some((e) => {
+          const r = e.getBoundingClientRect();
+          return r.height && (r.bottom > floor || r.top < b.top - 0.5 || r.right > b.right + 0.5);
+        });
+      }
+      if (cut || out) t.classList.replace("below", "dotonly");
+    }
   }
 
   _t(key, vars) {
@@ -2901,6 +3167,7 @@ class UpsBase extends HTMLElement {
       const kept = this._focusedSpot();
       this._html = html;
       this.shadowRoot.innerHTML = html;
+      this._fitPill();
       if (kept) this._restoreFocus(kept);
     }
     this._syncHistory();
@@ -3162,10 +3429,10 @@ class UpsBase extends HTMLElement {
 
   // ---- Parts -------------------------------------------------------------
 
-  _logo(dev, cls) {
+  _logo(dev, cls, path = ICONS.ups) {
     const src = SOURCES[dev.source];
     const badge = src ? `<img class="logo" src="${src.logo}" alt="${esc(src.name)}">` : "";
-    const icon = svgIcon(ICONS.ups, "type");
+    const icon = svgIcon(path, "type");
     return src
       ? `<a class="type-icon ${cls}" href="${src.site}" target="_blank" rel="noopener noreferrer" title="${esc(src.name)}">${icon}${badge}</a>`
       : `<span class="type-icon ${cls}">${icon}</span>`;
@@ -3175,7 +3442,12 @@ class UpsBase extends HTMLElement {
     return [dev.manufacturer, dev.model].filter(Boolean).join(" ");
   }
 
+  _illustrated() {
+    return this._config.illustration !== false;
+  }
+
   _header(dev, st, sub) {
+    if (this._illustrated()) return this._banner(dev, st);
     const cls = STATE_CLASS[st.key];
     const chip = st.entity
       ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(st.entity)}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`
@@ -3184,10 +3456,39 @@ class UpsBase extends HTMLElement {
       <div class="header">
         ${this._logo(dev, cls)}
         <div class="titles">
-          <div class="name">${esc(this._config.title || dev.name)}</div>
-          ${sub ? `<div class="sub">${esc(sub)}</div>` : ""}
+          <div class="trow"><div class="name">${esc(this._config.title || dev.name)}</div>${chip}</div>
+          ${sub ? `<div class="sub" title="${esc(sub)}">${esc(sub)}</div>` : ""}
         </div>
-        ${chip}
+        ${this._zoomButton()}
+      </div>`;
+  }
+
+  // The illustrated header: the icon, the name and the state on the wall, the UPS drawn big at the right (its
+  // state and animations), day or night. The manufacturer and model are also in the name's tooltip.
+  _banner(dev, st) {
+    const cls = STATE_CLASS[st.key];
+    const b = this._battery(dev);
+    const rt = this._runtime(dev);
+    const L = this._locale();
+    const model = this._subtitle(dev);
+    // The state in the status pill (it opens its entity). The subtitle: where the body shows the charge and the
+    // runtime (full card, expanded mini card), the manufacturer and model; on the compact mini card, the runtime on
+    // battery, else the charge.
+    const extra = this._heroInBody() ? model : isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
+    const pill = `<span class="chip ${cls}${st.entity ? ` clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}` : ""}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`;
+    const sub = extra ? `<div class="sub" title="${esc(extra)}">${esc(extra)}</div>` : "";
+    const name = this._config.title || dev.name;
+    return `
+      <div class="banner${isNight(this._hass, this._config) ? " night" : ""}">
+        ${upsScene(this._uid, st.key, b.v)}
+        <div class="head">
+          ${this._logo(dev, cls, ICONS.ups_mdi)}
+          <div class="titles"><div class="tstack">
+            <div class="trow"><div class="name" title="${esc(model ? `${name} · ${model}` : name)}">${esc(name)}</div>${pill}</div>
+            ${sub}
+          </div></div>
+        </div>
+        <div class="ground"></div>
         ${this._zoomButton()}
       </div>`;
   }
@@ -3196,10 +3497,24 @@ class UpsBase extends HTMLElement {
     return "";
   }
 
+  // Whether the body shows the battery charge big: always on the full card, only expanded on the mini card.
+  _heroInBody() {
+    return true;
+  }
+
   _picture(dev, st) {
     const label = esc(`${dev.name}: ${st.text}`);
     const attrs = st.entity ? ` clickable" role="button" tabindex="0" aria-label="${label}" data-entity="${esc(st.entity)}"` : `" role="img" aria-label="${label}"`;
     return `<div class="picture${attrs}>${upsSvg(st.key, this._battery(dev).v)}</div>`;
+  }
+
+  _bannerStyle() {
+    return this._illustrated() ? BANNER_STYLE : "";
+  }
+
+  // The UPS picture beside the battery, when it is not drawn in the illustrated header.
+  _heroPicture(dev, st) {
+    return this._illustrated() ? "" : this._picture(dev, st);
   }
 
   _alertsHtml(alerts) {
@@ -3269,7 +3584,7 @@ class UpsCard extends UpsBase {
     if (c.show_power !== false) parts.push(this._powerSection(dev));
     if (c.show_battery !== false) parts.push(this._batterySection(dev));
     if (c.show_outages !== false) parts.push(this._outagesSection(dev));
-    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}</style>
+    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${this._bannerStyle()}</style>
       <ha-card>
         ${this._header(dev, st, this._subtitle(dev))}
         <div class="content">${parts.filter(Boolean).join("")}</div>
@@ -3287,7 +3602,7 @@ class UpsCard extends UpsBase {
             <div class="bar ${b.cls}"><div style="width:${Math.max(0, Math.min(100, b.v))}%"></div></div>
           </div>`;
     return `<div class="hero">
-        ${this._picture(dev, st)}
+        ${this._heroPicture(dev, st)}
         <div class="info">${batt}${this._runtimeLine(dev)}${this._loadLine(dev)}</div>
       </div>`;
   }
@@ -3445,6 +3760,10 @@ class UpsMiniCard extends UpsCard {
     this._zoomed = false;
   }
 
+  _heroInBody() {
+    return !!this._zoomed;
+  }
+
   getCardSize() {
     return this._zoomed ? super.getCardSize() : 3;
   }
@@ -3489,12 +3808,12 @@ class UpsMiniCard extends UpsCard {
         ? ""
         : `<div class="batt clickable ${b.cls}" role="button" tabindex="0" data-entity="${esc(b.id)}" aria-label="${esc(`${this._t("battery")} ${Math.round(b.v)} %`)}">${svgIcon(ICONS.battery)}<div class="bar ${b.cls}"><div style="width:${Math.max(0, Math.min(100, b.v))}%"></div></div><span class="v">${esc(fmtValue(b.v, "%", L))}</span></div>`;
     const alert = this._alerts(dev, st)[0];
-    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${MINI_STYLE}</style>
+    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${MINI_STYLE}${this._bannerStyle()}</style>
       <ha-card>
         ${this._header(dev, st, "")}
         <div class="content">
           <div class="row">
-            ${this._picture(dev, st)}
+            ${this._heroPicture(dev, st)}
             <div class="info">${batt}${this._runtimeLine(dev)}${this._loadLine(dev)}</div>
           </div>
           ${alert ? this._alertsHtml([alert]) : ""}
@@ -3539,6 +3858,7 @@ class UpsEditorBase extends HTMLElement {
       ["show_title", true],
       ["show_subtitle", true],
       ["show_alerts", true],
+      ["illustration", true],
     ];
   }
 
@@ -3547,7 +3867,7 @@ class UpsEditorBase extends HTMLElement {
   }
 
   static get defaults() {
-    return {};
+    return { illustration_theme: "auto" };
   }
 
   setConfig(config) {
@@ -3566,6 +3886,10 @@ class UpsEditorBase extends HTMLElement {
       { name: "device", selector: { select: { mode: "dropdown", options: [{ value: "", label: tr("device_none") }, ...listDevices(this._hass)] } } },
       { name: "title", selector: { text: {} } },
       { type: "grid", name: "", schema: this.constructor.toggles.map(([name]) => ({ name, selector: { boolean: {} } })) },
+      {
+        name: "illustration_theme",
+        selector: { select: { mode: "dropdown", options: ["auto", "day", "night"].map((value) => ({ value, label: tr(`theme_${value}`) })) } },
+      },
       ...this.constructor.extraFields(tr),
       {
         type: "expandable",
@@ -3637,7 +3961,7 @@ class UpsCardEditor extends UpsEditorBase {
   }
 
   static get defaults() {
-    return { collapsed: DEFAULT_COLLAPSED, ...DEFAULTS };
+    return { ...UpsEditorBase.defaults, collapsed: DEFAULT_COLLAPSED, ...DEFAULTS };
   }
 
   static extraFields(tr) {

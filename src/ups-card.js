@@ -2734,13 +2734,9 @@ const BANNER_STYLE = `
   .banner.night .zoom { color: #ffffff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
   .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #ffffff; }
   .banner .zoom:focus-visible { outline: 2px solid var(--primary-color, #03a9f4); outline-offset: 2px; }
-  /* The title row: the title gives way first (down to 4 characters), the status pill keeps its whole label. The titles
-     are their own container: when the row runs out of room, the pill drops under the subtitle. */
-  .banner .head .titles { container: uc-titles / inline-size; flex: 1 1 0; min-width: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+  .banner .head .titles { flex: 1 1 0; min-width: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
   .tstack { display: flex; flex-direction: column; gap: 1px; align-items: flex-start; min-width: 0; width: 100%; }
   .tstack > * { max-width: 100%; }
-  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
-  .trow .name { flex: 0 1 auto; min-width: 4ch; }
   /* The status pill on the banner: the status colour on frosted glass. */
   .banner .chip { display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; margin: 0; max-width: 51%; padding: 1px 8px; border-radius: 12px;
                   font-size: 11px; font-weight: 500; line-height: 16px; white-space: nowrap; overflow: hidden; box-sizing: border-box;
@@ -2748,13 +2744,6 @@ const BANNER_STYLE = `
   .banner.night .chip { background: color-mix(in srgb, var(--c, var(--uc-accent)) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c, var(--uc-accent)) 35%, #ffffff); }
   .banner .chip .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--c, var(--uc-accent)); }
   .banner .chip .chip-text { display: inline; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-  @container uc-titles (max-width: 180px) {
-    .tstack { display: grid; justify-items: start; row-gap: 1px; }
-    .trow { display: contents; }
-    .trow .name { max-width: 100%; }
-    .banner .chip { order: 3; max-width: 100%; }
-  }
-  @container uc-card (max-width: 200px) { .banner .chip { padding: 4px; } .banner .chip .chip-text { display: none; } }
   /* The mini card: the scene steps aside for the detail button in the top-right corner (5 + 24 px), its cable tray
      ending 7 px left of it, at full size. Narrow card: no room for the scene beside the text, the wall alone stays. */
   .banner:has(> .zoom) .scene { right: 36px; }
@@ -2791,10 +2780,8 @@ const BASE_STYLE = `
   .bar > div { height: 100%; border-radius: 3px; background: var(--c, var(--uc-ok)); transition: width .6s ease; }
   /* Title row: icon, titles, status chip (aligned on the title line) and the mini card's detail button. */
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
-  /* With a subtitle, the chip stays on the title's line (16 px × 1.25 + 12 px subtitle line, centered: 14.4 px up). */
-  .header:has(.sub) > .chip { margin-bottom: 14.4px; }
-  .titles { flex: 1 1 0; min-width: 5ch; }
-  :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
+  .titles { flex: 1 1 0; min-width: 0; }
+  :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .type-icon { position: relative; display: flex; flex: none; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center;
@@ -2822,12 +2809,24 @@ const BASE_STYLE = `
   .zoom .icon { width: 14px; height: 14px; }
   .zoom:hover { background: color-mix(in srgb, var(--uc-idle) 18%, transparent); color: var(--primary-text-color); }
   .zoom:focus-visible { outline: 2px solid var(--primary-color, var(--uc-accent)); outline-offset: 1px; }
-  /* Narrow card: the status chip keeps only its colored dot (its text stays in title and aria-label). */
-  @container uc-card (max-width: 230px) {
-    .chip { padding: 4px; flex: none; }
-    .chip-text { display: none; }
-    .header { gap: 6px; }
-  }
+  @container uc-card (max-width: 230px) { .header { gap: 6px; } }
+  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+     whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
+     title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
+     measurement (see _fitPill), so that every language and every width gets it right. */
+  .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
+  .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
+  .titles .trow > .chip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .titles.below > * { max-width: 100%; }
+  .titles.below .trow { display: contents; }
+  .titles.below .trow > .name { max-width: 100%; }
+  .titles.below .trow > .chip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
+  .banner .titles.below .trow > .chip { max-width: none; }
+  .titles.below :is(.sub) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.dotonly .trow > .chip { padding: 4px; } .titles.dotonly .trow > .chip .chip-text { display: none; }
+  @container uc-card (max-width: 200px) { .titles .trow > .chip { padding: 4px; } .titles .trow > .chip .chip-text { display: none; } }
 `;
 
 const FULL_STYLE = `
@@ -3049,6 +3048,18 @@ class UpsBase extends HTMLElement {
       this._update();
     });
     this._outside.on();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._resize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._fitWidth) return;
+        this._fitWidth = w;
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._resize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
     // Back on the page after leaving it: rendered again in its default state.
     if (this._hass && this._config) this._update();
     // "On battery for 4 minutes" moves on its own: re-checked every minute while the card is on the page.
@@ -3063,6 +3074,8 @@ class UpsBase extends HTMLElement {
     clearInterval(this._tick);
     this._tick = null;
     this._outside?.off();
+    this._resize?.disconnect();
+    this._fitWidth = null;
     this._dropPress();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, so that the card does not
     // come back unfolded.
@@ -3081,6 +3094,45 @@ class UpsBase extends HTMLElement {
     this._lastDeps = null;
     this._history = null;
     this._update();
+  }
+
+  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
+  // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
+  // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
+  // beside the title (.titles.dotonly). Measured in fractional pixels.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector(".trow");
+      const chips = row ? [...row.querySelectorAll(":scope > .chip")] : [];
+      if (!chips.length || !row.getBoundingClientRect) continue;
+      t.classList.remove("below", "dotonly");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      let need = -gap;
+      if (name && getComputedStyle(name).display !== "none") {
+        name.style.flex = "none";
+        need = name.getBoundingClientRect().width;
+        name.style.flex = "";
+      }
+      for (const w of widths) need += gap + w;
+      const room = row.getBoundingClientRect().width + 0.01;
+      if (need <= room) continue;
+      t.classList.add("below");
+      const banner = t.closest(".banner");
+      const cut = !banner && widths.some((w) => w > room);
+      let out = false;
+      if (banner) {
+        const b = banner.getBoundingClientRect();
+        const floor = b.bottom - (banner.querySelector(".ground")?.getBoundingClientRect().height ?? 10) + 0.5;
+        out = [...t.querySelectorAll(".name, .sub, .chip")].some((e) => {
+          const r = e.getBoundingClientRect();
+          return r.height && (r.bottom > floor || r.top < b.top - 0.5 || r.right > b.right + 0.5);
+        });
+      }
+      if (cut || out) t.classList.replace("below", "dotonly");
+    }
   }
 
   _t(key, vars) {
@@ -3115,6 +3167,7 @@ class UpsBase extends HTMLElement {
       const kept = this._focusedSpot();
       this._html = html;
       this.shadowRoot.innerHTML = html;
+      this._fitPill();
       if (kept) this._restoreFocus(kept);
     }
     this._syncHistory();
@@ -3403,10 +3456,9 @@ class UpsBase extends HTMLElement {
       <div class="header">
         ${this._logo(dev, cls)}
         <div class="titles">
-          <div class="name">${esc(this._config.title || dev.name)}</div>
-          ${sub ? `<div class="sub">${esc(sub)}</div>` : ""}
+          <div class="trow"><div class="name">${esc(this._config.title || dev.name)}</div>${chip}</div>
+          ${sub ? `<div class="sub" title="${esc(sub)}">${esc(sub)}</div>` : ""}
         </div>
-        ${chip}
         ${this._zoomButton()}
       </div>`;
   }
@@ -3424,7 +3476,7 @@ class UpsBase extends HTMLElement {
     // battery, else the charge.
     const extra = this._heroInBody() ? model : isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
     const pill = `<span class="chip ${cls}${st.entity ? ` clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}` : ""}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`;
-    const sub = extra ? `<div class="sub">${esc(extra)}</div>` : "";
+    const sub = extra ? `<div class="sub" title="${esc(extra)}">${esc(extra)}</div>` : "";
     const name = this._config.title || dev.name;
     return `
       <div class="banner${isNight(this._hass, this._config) ? " night" : ""}">

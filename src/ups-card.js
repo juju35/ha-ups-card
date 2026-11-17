@@ -2701,6 +2701,8 @@ const BANNER_STYLE = `
             background: #e7eaee; --sky-text: #0d2a45; --sky-muted: #3b5b78; }
   .banner.night { background: #232a36; --sky-text: #fff; --sky-muted: rgba(255,255,255,.78); }
   .banner .scene { position: absolute; right: 0; bottom: var(--g); height: calc(100% - var(--g)); width: var(--sw); overflow: visible; }
+  /* The scene's left end (tray, wall box) fades under the text. */
+  .banner .scene { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0, rgba(0,0,0,.35) 12%, #000 42%); mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0, rgba(0,0,0,.35) 12%, #000 42%); }
   .banner .ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--g); background: #9aa1a9; box-shadow: inset 0 2px 0 #b5bbc2; }
   .banner.night .ground { background: #2c323b; box-shadow: inset 0 2px 0 #39414c; }
   .uc-wall line { stroke: #d6dbe1; stroke-width: .8; } .night .uc-wall line { stroke: #2e3746; }
@@ -2713,7 +2715,7 @@ const BANNER_STYLE = `
   .banner .ups { overflow: visible; }
   .night .ups .case { stroke: #55606e; } .night .ups .edge { fill: #4b5460; }
   /* Title and state on the wall at the left, the scene at the right. */
-  .banner .head { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: var(--sw); display: flex; align-items: center;
+  .banner .head { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: calc(var(--sw) - 60px); display: flex; align-items: center;
                   gap: 10px; padding: 8px 8px 8px 14px; color: var(--sky-text); min-width: 0; }
   .banner .titles { flex: 1 1 auto; min-width: 0; }
   .banner .name { font-size: 16px; font-weight: 500; }
@@ -2724,10 +2726,40 @@ const BANNER_STYLE = `
   .banner.night .type-icon { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
   .banner.night .type-icon .icon.type { fill: color-mix(in srgb, var(--uc-tint) 75%, #fff); }
   .banner .type-icon .logo { padding: 2px; box-sizing: border-box; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }
-  .banner .zoom { position: absolute; z-index: 2; top: 6px; right: 6px; margin: 0; color: #10283f; background: rgba(255,255,255,.55); border-color: rgba(16,40,63,.15); }
-  .banner.night .zoom { color: #fff; background: rgba(10,20,40,.45); border-color: rgba(255,255,255,.2); }
-  /* Narrow card: no room for the scene beside the text, the wall alone stays. */
-  @container (max-width: 200px) { .banner .scene { display: none; } .banner .head { right: 30px; } }
+  /* The mini card's detail button: a frosted round button in the banner's top-right corner. */
+  .banner .zoom { all: unset; position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; cursor: pointer; width: 24px; height: 24px;
+                  border-radius: 50%; display: grid; place-items: center; box-sizing: border-box; color: #33506b; background: rgba(255,255,255,.55);
+                  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .banner .zoom .icon { width: 16px; height: 16px; }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #ffffff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #ffffff; }
+  .banner .zoom:focus-visible { outline: 2px solid var(--primary-color, #03a9f4); outline-offset: 2px; }
+  /* The title row: the title gives way first (down to 4 characters), the status pill keeps its whole label. The titles
+     are their own container: when the row runs out of room, the pill drops under the subtitle. */
+  .banner .head .titles { container: uc-titles / inline-size; flex: 1 1 0; min-width: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+  .tstack { display: flex; flex-direction: column; gap: 1px; align-items: flex-start; min-width: 0; width: 100%; }
+  .tstack > * { max-width: 100%; }
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
+  .trow .name { flex: 0 1 auto; min-width: 4ch; }
+  /* The status pill on the banner: the status colour on frosted glass. */
+  .banner .chip { display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; margin: 0; max-width: 51%; padding: 1px 8px; border-radius: 12px;
+                  font-size: 11px; font-weight: 500; line-height: 16px; white-space: nowrap; overflow: hidden; box-sizing: border-box;
+                  background: color-mix(in srgb, var(--c, var(--uc-accent)) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c, var(--uc-accent)) 45%, #0d2a45); }
+  .banner.night .chip { background: color-mix(in srgb, var(--c, var(--uc-accent)) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c, var(--uc-accent)) 35%, #ffffff); }
+  .banner .chip .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--c, var(--uc-accent)); }
+  .banner .chip .chip-text { display: inline; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  @container uc-titles (max-width: 180px) {
+    .tstack { display: grid; justify-items: start; row-gap: 1px; }
+    .trow { display: contents; }
+    .trow .name { max-width: 100%; }
+    .banner .chip { order: 3; max-width: 100%; }
+  }
+  @container uc-card (max-width: 200px) { .banner .chip { padding: 4px; } .banner .chip .chip-text { display: none; } }
+  /* Narrow card: no room for the scene beside the text, the wall alone stays. The mini card: the scene steps aside for the detail button in the top-right corner. */
+  .banner:has(> .zoom) .scene { right: 30px; }
+  .banner:has(> .zoom) .head { right: calc(var(--sw) - 30px); }
+  @container uc-card (max-width: 280px) { .banner .scene { display: none; } .banner .head, .banner:has(> .zoom) .head { right: 30px; } }
 `;
 
 // ---------------------------------------------------------------------------
@@ -2739,7 +2771,7 @@ const BASE_STYLE = `
           --uc-crit: var(--error-color, #db4437); --uc-idle: var(--disabled-text-color, #9e9e9e); --uc-active: var(--info-color, #039be5);
           /* Text in a state color is mixed with the text color so that it reads at 4.5:1 at least. */
           --uc-accent-text: color-mix(in srgb, var(--uc-accent) 50%, var(--primary-text-color)); }
-  ha-card { overflow: hidden; container-type: inline-size; }
+  ha-card { overflow: hidden; container: uc-card / inline-size; }
   /* A size container has no width of its own: this zero-height grid gives the card a natural width without a minimum,
      so that it still shrinks to its track in a grid or a flex row. */
   :host { display: block; min-width: 0; --uc-natural-width: 360px; }
@@ -2791,7 +2823,7 @@ const BASE_STYLE = `
   .zoom:hover { background: color-mix(in srgb, var(--uc-idle) 18%, transparent); color: var(--primary-text-color); }
   .zoom:focus-visible { outline: 2px solid var(--primary-color, var(--uc-accent)); outline-offset: 1px; }
   /* Narrow card: the status chip keeps only its colored dot (its text stays in title and aria-label). */
-  @container (max-width: 230px) {
+  @container uc-card (max-width: 230px) {
     .chip { padding: 4px; flex: none; }
     .chip-text { display: none; }
     .header { gap: 6px; }
@@ -2834,12 +2866,12 @@ const FULL_STYLE = `
   .outage .dur { font-weight: 500; white-space: nowrap; }
   .outage.ongoing .dur { color: color-mix(in srgb, var(--uc-warn) 50%, var(--primary-text-color)); }
   .msg { font-size: 12px; color: var(--secondary-text-color); padding: 4px 2px; }
-  @container (max-width: 300px) {
+  @container uc-card (max-width: 300px) {
     .picture { width: 80px; height: 66px; }
     .hero { gap: 10px; }
     .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  @container (max-width: 200px) {
+  @container uc-card (max-width: 200px) {
     .picture { display: none; }
     .batt .pct { font-size: 24px; }
     .tiles { grid-template-columns: minmax(0, 1fr); }
@@ -2856,7 +2888,7 @@ const MINI_STYLE = `
   .batt .bar { flex: 1; }
   .batt .v { font-weight: 500; min-width: 40px; text-align: right; }
   .alert { padding: 6px 8px; font-size: 12px; }
-  @container (max-width: 220px) {
+  @container uc-card (max-width: 220px) {
     .picture { display: none; }
   }
 `;
@@ -3388,10 +3420,9 @@ class UpsBase extends HTMLElement {
     const rt = this._runtime(dev);
     const L = this._locale();
     const extra = isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
-    const text = [st.text, extra].filter(Boolean).join(" · ");
-    const sub = st.entity
-      ? `<div class="sub clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}" aria-label="${esc(text)}">${esc(text)}</div>`
-      : `<div class="sub">${esc(text)}</div>`;
+    // The state in the status pill (it opens its entity), the runtime or the charge in the subtitle.
+    const pill = `<span class="chip ${cls}${st.entity ? ` clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}` : ""}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`;
+    const sub = extra ? `<div class="sub">${esc(extra)}</div>` : "";
     const name = this._config.title || dev.name;
     const model = this._subtitle(dev);
     return `
@@ -3399,10 +3430,10 @@ class UpsBase extends HTMLElement {
         ${upsScene(this._uid, st.key, b.v)}
         <div class="head">
           ${this._logo(dev, cls, ICONS.ups_mdi)}
-          <div class="titles">
-            <div class="name" title="${esc(model ? `${name} · ${model}` : name)}">${esc(name)}</div>
+          <div class="titles"><div class="tstack">
+            <div class="trow"><div class="name" title="${esc(model ? `${name} · ${model}` : name)}">${esc(name)}</div>${pill}</div>
             ${sub}
-          </div>
+          </div></div>
         </div>
         <div class="ground"></div>
         ${this._zoomButton()}

@@ -231,7 +231,9 @@ test("on battery: orange state, alert with the time on battery and the runtime, 
   await flush();
   const h = html(card);
   assert.match(h, /class="type-icon warn"/);
-  assert.match(h, /<div class="sub clickable"[^>]*>On battery · 25 min<\/div>/);
+  // The state in the status pill on the title row (it opens its entity), the runtime in the subtitle.
+  assert.match(h, /class="trow"><div class="name"[^>]*>[^<]*<\/div><span class="chip warn clickable"[^>]*><span class="dot"><\/span><span class="chip-text">On battery</);
+  assert.match(h, /<div class="sub">25 min<\/div>/);
   assert.match(h, /On battery for 4 min · 25 min left/);
   assert.match(h, /class="ups s-on_battery warn"/);
   assert.match(h, /ongoing/);
@@ -480,7 +482,7 @@ test("illustrated header: banner with the UPS, night from the sun or the theme o
   assert.match(day, /class="ground"/);
   assert.match(day, /class="ups s-online ok"/);
   assert.equal((day.match(/class="ups /g) || []).length, 1, "the UPS is drawn once, in the banner");
-  assert.doesNotMatch(day, /class="chip/);
+  assert.match(day, /class="chip ok[^"]*"[^>]*>.*?chip-text">On mains</s);
   const night = html(newCard({}, makeHass({ ...moved(states), ...sun("below_horizon") })));
   assert.match(night, /<div class="banner night">/);
   assert.match(html(newCard({ illustration_theme: "day" }, makeHass({ ...moved(states), ...sun("below_horizon") }))), /<div class="banner">/);

@@ -6,6 +6,7 @@
 - Illustrated header on both cards (90 px): the name and the state (with the runtime left on battery, else the charge) on a technical room wall, the card's animated UPS drawn big at the right standing on a 10 px concrete floor strip, and a round badge with the UPS icon in the state color (green on mains, blue charging, orange on battery, red when low, overloaded or offline, grey when unknown) carrying the integration's logo. The picture follows the UPS state (power flow, plug cut off with a spark, gauge filling or draining, blinking LED, shaking on overload).
 - Night version of the illustration, following `sun.sun` (else Home Assistant's dark theme), forced with `illustration_theme: day | night`; `illustration: false` brings back the classic header. Both options are in the visual editor of both cards.
 - The status pill sits on the title row of the illustrated header, right after the name, in the state color (it opens the state entity); the subtitle keeps the runtime or the charge. It drops under the subtitle when room runs short and keeps only its dot on a very narrow card. The mini card's detail button sits in the banner's top-right corner, in the frosted style of the other cards, the picture stepping aside for it.
+- On the mini card, the scene steps a little further left: its cable tray no longer runs into the corner expand / collapse button.
 
 ## 1.0.2 - 2026-11-14
 

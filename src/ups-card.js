@@ -2756,9 +2756,10 @@ const BANNER_STYLE = `
     .banner .chip { order: 3; max-width: 100%; }
   }
   @container uc-card (max-width: 200px) { .banner .chip { padding: 4px; } .banner .chip .chip-text { display: none; } }
-  /* Narrow card: no room for the scene beside the text, the wall alone stays. The mini card: the scene steps aside for the detail button in the top-right corner. */
-  .banner:has(> .zoom) .scene { right: 30px; }
-  .banner:has(> .zoom) .head { right: calc(var(--sw) - 30px); }
+  /* The mini card: the scene steps aside for the detail button in the top-right corner (5 + 24 px), its cable tray
+     ending 7 px left of it, at full size. Narrow card: no room for the scene beside the text, the wall alone stays. */
+  .banner:has(> .zoom) .scene { right: 36px; }
+  .banner:has(> .zoom) .head { right: calc(var(--sw) - 24px); }
   @container uc-card (max-width: 280px) { .banner .scene { display: none; } .banner .head, .banner:has(> .zoom) .head { right: 30px; } }
 `;
 

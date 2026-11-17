@@ -2667,13 +2667,12 @@ const PICTURE_STYLE = `
 // Illustrated header ("banner"): the UPS in its technical room
 // ---------------------------------------------------------------------------
 
-// Night picture: forced by illustration_theme, else the sun below the horizon, else Home Assistant's dark mode.
+// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme
+// (an unknown or unavailable sun leaves the theme alone to decide).
 const isNight = (hass, config) => {
   if (config.illustration_theme === "night") return true;
   if (config.illustration_theme === "day") return false;
-  const sun = hass?.states?.["sun.sun"];
-  if (sun && !["unknown", "unavailable", ""].includes(sun.state)) return sun.state === "below_horizon";
-  return !!hass?.themes?.darkMode;
+  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
 };
 
 // The banner picture, 200 × 80 drawn at the right of the banner (preserveAspectRatio xMaxYMax): a technical room

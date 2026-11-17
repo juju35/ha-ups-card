@@ -489,6 +489,12 @@ test("illustrated header: banner with the UPS, night from the sun or the theme o
   assert.match(html(newCard({ illustration_theme: "night" }, makeHass({ ...moved(states), ...sun("above_horizon") }))), /<div class="banner night">/);
   // No sun: Home Assistant's dark theme.
   assert.match(html(newCard({}, makeHass(moved(states), { themes: { darkMode: true } }))), /<div class="banner night">/);
+  // The dark theme gives the night picture even while the sun is up; a light theme keeps the day; forced wins.
+  const up = (darkMode) => makeHass({ ...moved(states), ...sun("above_horizon") }, { themes: { darkMode } });
+  assert.match(html(newCard({}, up(true))), /<div class="banner night">/);
+  assert.match(html(newCard({}, up(false))), /<div class="banner">/);
+  assert.match(html(newCard({ illustration_theme: "day" }, up(true))), /<div class="banner">/);
+  assert.match(html(newCard({ illustration_theme: "night" }, up(false))), /<div class="banner night">/);
   // Each card instance has its own gradient id.
   const ids = [newCard(), newCard()].map((c) => html(c).match(/id="(uc-shadow-\d+)"/)[1]);
   assert.notEqual(ids[0], ids[1]);

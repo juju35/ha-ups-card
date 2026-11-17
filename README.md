@@ -154,7 +154,7 @@ language: fr
 | `entities` | both | — | Map of entities, see [Generic sensors](#generic-sensors). With `device`, each one replaces the integration's own |
 | `title` | both | Device name | Card title |
 | `show_title` | both | `true` | Show the title in the header (e.g. `false` under a section heading of your own) |
-| `show_subtitle` | both | `true` | Show the subtitle: the state in the illustrated header, the brand and model in the classic header (full card) |
+| `show_subtitle` | both | `true` | Show the subtitle: the brand and model (compact mini card with the illustration: the runtime on battery, else the charge) |
 | `show_alerts` | both | `true` | Show the alerts (the mini card shows the most important one) |
 | `illustration` | both | `true` | Illustrated header: the UPS drawn big in its technical room, animated by its state, with the state (and the runtime left on battery, else the charge) under the title. `false`: classic header with the status chip and the UPS beside the battery |
 | `illustration_theme` | both | `auto` | Day or night picture of the illustrated header: `auto` (night when `sun.sun` is below the horizon or with Home Assistant's dark theme, even while the sun is up), `day` or `night` |

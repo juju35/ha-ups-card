@@ -3412,19 +3412,20 @@ class UpsBase extends HTMLElement {
   }
 
   // The illustrated header: the icon, the name and the state on the wall, the UPS drawn big at the right (its
-  // state and animations), day or night. The state (with the runtime left on battery, else the charge) replaces the
-  // status chip and opens its entity; the manufacturer and model stay in the name's tooltip.
+  // state and animations), day or night. The manufacturer and model are also in the name's tooltip.
   _banner(dev, st) {
     const cls = STATE_CLASS[st.key];
     const b = this._battery(dev);
     const rt = this._runtime(dev);
     const L = this._locale();
-    const extra = isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
-    // The state in the status pill (it opens its entity), the runtime or the charge in the subtitle.
+    const model = this._subtitle(dev);
+    // The state in the status pill (it opens its entity). The subtitle: where the body shows the charge and the
+    // runtime (full card, expanded mini card), the manufacturer and model; on the compact mini card, the runtime on
+    // battery, else the charge.
+    const extra = this._heroInBody() ? model : isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
     const pill = `<span class="chip ${cls}${st.entity ? ` clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}` : ""}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`;
     const sub = extra ? `<div class="sub">${esc(extra)}</div>` : "";
     const name = this._config.title || dev.name;
-    const model = this._subtitle(dev);
     return `
       <div class="banner${isNight(this._hass, this._config) ? " night" : ""}">
         ${upsScene(this._uid, st.key, b.v)}
@@ -3442,6 +3443,11 @@ class UpsBase extends HTMLElement {
 
   _zoomButton() {
     return "";
+  }
+
+  // Whether the body shows the battery charge big: always on the full card, only expanded on the mini card.
+  _heroInBody() {
+    return true;
   }
 
   _picture(dev, st) {
@@ -3700,6 +3706,10 @@ class UpsMiniCard extends UpsCard {
     this._unzoom.off();
     // Back to the compact view once off the screen.
     this._zoomed = false;
+  }
+
+  _heroInBody() {
+    return !!this._zoomed;
   }
 
   getCardSize() {

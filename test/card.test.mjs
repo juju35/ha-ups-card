@@ -231,9 +231,17 @@ test("on battery: orange state, alert with the time on battery and the runtime, 
   await flush();
   const h = html(card);
   assert.match(h, /class="type-icon warn"/);
-  // The state in the status pill on the title row (it opens its entity), the runtime in the subtitle.
+  // The state in the status pill on the title row (it opens its entity); the body shows the runtime, so the
+  // subtitle tells the model; the compact mini card (no runtime big) keeps the runtime in its subtitle.
   assert.match(h, /class="trow"><div class="name"[^>]*>[^<]*<\/div><span class="chip warn clickable"[^>]*><span class="dot"><\/span><span class="chip-text">On battery</);
-  assert.match(h, /<div class="sub">25 min<\/div>/);
+  assert.match(h, /<div class="sub">EATON 5E 850i<\/div>/);
+  assert.doesNotMatch(h, /<div class="sub">25 min<\/div>/);
+  const mini = newCard({}, makeHass(withOverrides(onBattery)), uc.UpsMiniCard);
+  await flush();
+  assert.match(html(mini), /<div class="sub">25 min<\/div>/);
+  assert.match(html(newCard({}, makeHass(), uc.UpsMiniCard)), /<div class="sub">100 %<\/div>/);
+  click(mini, { action: "zoom" });
+  assert.match(html(mini), /<div class="sub">EATON 5E 850i<\/div>/);
   assert.match(h, /On battery for 4 min · 25 min left/);
   assert.match(h, /class="ups s-on_battery warn"/);
   assert.match(h, /ongoing/);

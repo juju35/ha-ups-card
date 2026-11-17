@@ -29,6 +29,7 @@ The cards work on top of [Network UPS Tools (NUT)](https://www.home-assistant.io
 ## Features
 
 - Two cards: a full **UPS Card** (`custom:ups-card`) and a compact **UPS Mini Card** (`custom:ups-mini-card`)
+- **Illustrated header** (both cards, 90 px): the name and the state on a technical room wall, the animated UPS drawn big at the right on a concrete floor strip, a round badge with the UPS icon in the state color and the integration's logo; a night version follows the sun (`sun.sun`, else the dark theme) or `illustration_theme`; `illustration: false` brings back the classic header
 - State of the UPS — on mains, charging, on battery, low battery, overload, bypass, calibration, battery test, forced shutdown, offline — as a status chip and as the color of the header icon (green on the mains, blue charging, orange on battery, red when low, overloaded or offline)
 - A drawn UPS **animated by its state**: power flowing from the wall plug to the computer, the battery gauge filling while charging, the plug cut off and the gauge draining on battery, a blinking LED when something is wrong, the UPS shaking when overloaded (see [Animations](#animations))
 - Battery charge, runtime left (in the units of your language), load in percent and power
@@ -118,6 +119,8 @@ title: Office
 show_title: true
 show_subtitle: true
 show_alerts: true
+illustration: true
+illustration_theme: auto
 show_power: true
 show_battery: true
 show_outages: true
@@ -151,8 +154,10 @@ language: fr
 | `entities` | both | — | Map of entities, see [Generic sensors](#generic-sensors). With `device`, each one replaces the integration's own |
 | `title` | both | Device name | Card title |
 | `show_title` | both | `true` | Show the title in the header (e.g. `false` under a section heading of your own) |
-| `show_subtitle` | both | `true` | Show the brand and model under the title (full card) |
+| `show_subtitle` | both | `true` | Show the subtitle: the state in the illustrated header, the brand and model in the classic header (full card) |
 | `show_alerts` | both | `true` | Show the alerts (the mini card shows the most important one) |
+| `illustration` | both | `true` | Illustrated header: the UPS drawn big in its technical room, animated by its state, with the state (and the runtime left on battery, else the charge) under the title. `false`: classic header with the status chip and the UPS beside the battery |
+| `illustration_theme` | both | `auto` | Day or night picture of the illustrated header: `auto` (night when `sun.sun` is below the horizon, else with Home Assistant's dark theme), `day` or `night` |
 | `low_runtime` | both | `10` | Runtime left, in minutes, under which the runtime turns red and a UPS on battery reads **Low battery** (orange under twice this value) |
 | `zoom` | mini | `true` | Detail button at the top right of the mini card: it shows the full card's content (with the same options, so `show_power`, `collapsed`, `history_days`… can be set on the mini card too, in YAML or in its visual editor) and switches back; a click outside the card also brings the compact view back. `false` removes the button |
 | `show_power` | both | `true` | Power section |

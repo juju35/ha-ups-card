@@ -230,7 +230,8 @@ test("on battery: orange state, alert with the time on battery and the runtime, 
   const card = newCard({}, makeHass(withOverrides(onBattery)));
   await flush();
   const h = html(card);
-  assert.match(h, /class="chip clickable warn"/);
+  assert.match(h, /class="type-icon warn"/);
+  assert.match(h, /<div class="sub clickable"[^>]*>On battery · 25 min<\/div>/);
   assert.match(h, /On battery for 4 min · 25 min left/);
   assert.match(h, /class="ups s-on_battery warn"/);
   assert.match(h, /ongoing/);
@@ -470,4 +471,34 @@ test("no rewrite under a press: drawn after its release, and at once by its clic
   assert.doesNotMatch(html(card), /Battery voltage/, "the click draws at once");
   card.disconnectedCallback();
   assert.equal(card._pressing, false);
+});
+
+test("illustrated header: banner with the UPS, night from the sun or the theme option, classic header on demand", () => {
+  const sun = (state) => ({ "sun.sun": { entity_id: "sun.sun", state, attributes: {}, last_changed: "", last_updated: "" } });
+  const day = html(newCard({}, makeHass({ ...moved(states), ...sun("above_horizon") })));
+  assert.match(day, /<div class="banner">/);
+  assert.match(day, /class="ground"/);
+  assert.match(day, /class="ups s-online ok"/);
+  assert.equal((day.match(/class="ups /g) || []).length, 1, "the UPS is drawn once, in the banner");
+  assert.doesNotMatch(day, /class="chip/);
+  const night = html(newCard({}, makeHass({ ...moved(states), ...sun("below_horizon") })));
+  assert.match(night, /<div class="banner night">/);
+  assert.match(html(newCard({ illustration_theme: "day" }, makeHass({ ...moved(states), ...sun("below_horizon") }))), /<div class="banner">/);
+  assert.match(html(newCard({ illustration_theme: "night" }, makeHass({ ...moved(states), ...sun("above_horizon") }))), /<div class="banner night">/);
+  // No sun: Home Assistant's dark theme.
+  assert.match(html(newCard({}, makeHass(moved(states), { themes: { darkMode: true } }))), /<div class="banner night">/);
+  // Each card instance has its own gradient id.
+  const ids = [newCard(), newCard()].map((c) => html(c).match(/id="(uc-shadow-\d+)"/)[1]);
+  assert.notEqual(ids[0], ids[1]);
+  // Low battery: red badge and picture; the mini card has the same banner with its zoom button.
+  const low = html(newCard({}, makeHass(withOverrides(lowBattery)), uc.UpsMiniCard));
+  assert.match(low, /class="banner/);
+  assert.match(low, /class="type-icon crit"/);
+  assert.match(low, /class="ups s-low_battery crit"/);
+  assert.match(low, /class="zoom"/);
+  // illustration: false keeps the classic header, chip and picture beside the battery.
+  const classic = html(newCard({ illustration: false }));
+  assert.doesNotMatch(classic, /class="banner/);
+  assert.match(classic, /class="chip clickable ok"/);
+  assert.match(classic, /class="picture/);
 });

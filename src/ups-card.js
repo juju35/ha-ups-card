@@ -104,6 +104,11 @@ const STRINGS = {
     lang_auto: "Automatic",
     zoom: "Detail button",
     zoom_helper: "Button at the top right that switches the mini card to the full card and back",
+    illustration: "Animated illustration",
+    illustration_theme: "Illustration theme",
+    theme_auto: "Automatic (sun)",
+    theme_day: "Day",
+    theme_night: "Night",
     zoom_in: "Show the full card",
     zoom_out: "Show the compact card",
   },
@@ -198,6 +203,11 @@ const STRINGS = {
     lang_auto: "Automatique",
     zoom: "Bouton détail",
     zoom_helper: "Bouton en haut à droite qui bascule la mini-carte vers la carte complète et inversement",
+    illustration: "Illustration animée",
+    illustration_theme: "Thème de l’illustration",
+    theme_auto: "Automatique (soleil)",
+    theme_day: "Jour",
+    theme_night: "Nuit",
     zoom_in: "Afficher la carte complète",
     zoom_out: "Afficher la carte compacte",
   },
@@ -292,6 +302,11 @@ const STRINGS = {
     lang_auto: "Automatisch",
     zoom: "Detailschaltfläche",
     zoom_helper: "Schaltfläche oben rechts, die die Mini-Karte zur vollständigen Karte umschaltet und zurück",
+    illustration: "Animierte Illustration",
+    illustration_theme: "Thema der Illustration",
+    theme_auto: "Automatisch (Sonne)",
+    theme_day: "Tag",
+    theme_night: "Nacht",
     zoom_in: "Vollständige Karte anzeigen",
     zoom_out: "Kompakte Karte anzeigen",
   },
@@ -386,6 +401,11 @@ const STRINGS = {
     lang_auto: "Automático",
     zoom: "Botón de detalle",
     zoom_helper: "Botón arriba a la derecha que cambia la minitarjeta a la tarjeta completa y viceversa",
+    illustration: "Ilustración animada",
+    illustration_theme: "Tema de la ilustración",
+    theme_auto: "Automático (sol)",
+    theme_day: "Día",
+    theme_night: "Noche",
     zoom_in: "Mostrar la tarjeta completa",
     zoom_out: "Mostrar la tarjeta compacta",
   },
@@ -480,6 +500,11 @@ const STRINGS = {
     lang_auto: "Automatica",
     zoom: "Pulsante dettaglio",
     zoom_helper: "Pulsante in alto a destra che passa dalla mini scheda alla scheda completa e viceversa",
+    illustration: "Illustrazione animata",
+    illustration_theme: "Tema dell’illustrazione",
+    theme_auto: "Automatico (sole)",
+    theme_day: "Giorno",
+    theme_night: "Notte",
     zoom_in: "Mostra la scheda completa",
     zoom_out: "Mostra la scheda compatta",
   },
@@ -574,6 +599,11 @@ const STRINGS = {
     lang_auto: "Automatisch",
     zoom: "Detailknop",
     zoom_helper: "Knop rechtsboven die de minikaart naar de volledige kaart wisselt en terug",
+    illustration: "Geanimeerde illustratie",
+    illustration_theme: "Thema van de illustratie",
+    theme_auto: "Automatisch (zon)",
+    theme_day: "Dag",
+    theme_night: "Nacht",
     zoom_in: "Volledige kaart tonen",
     zoom_out: "Compacte kaart tonen",
   },
@@ -668,6 +698,11 @@ const STRINGS = {
     lang_auto: "Automático",
     zoom: "Botão de detalhe",
     zoom_helper: "Botão no canto superior direito que alterna o mini cartão para o cartão completo e vice-versa",
+    illustration: "Ilustração animada",
+    illustration_theme: "Tema da ilustração",
+    theme_auto: "Automático (sol)",
+    theme_day: "Dia",
+    theme_night: "Noite",
     zoom_in: "Mostrar o cartão completo",
     zoom_out: "Mostrar o cartão compacto",
   },
@@ -762,6 +797,11 @@ const STRINGS = {
     lang_auto: "Automatyczny",
     zoom: "Przycisk szczegółów",
     zoom_helper: "Przycisk w prawym górnym rogu przełączający minikartę na pełną kartę i z powrotem",
+    illustration: "Animowana ilustracja",
+    illustration_theme: "Motyw ilustracji",
+    theme_auto: "Automatycznie (słońce)",
+    theme_day: "Dzień",
+    theme_night: "Noc",
     zoom_in: "Pokaż pełną kartę",
     zoom_out: "Pokaż kompaktową kartę",
   },
@@ -856,6 +896,11 @@ const STRINGS = {
     lang_auto: "Аутоматски",
     zoom: "Дугме за детаље",
     zoom_helper: "Дугме горе десно које пребацује мини картицу на пуну картицу и назад",
+    illustration: "Анимирана илустрација",
+    illustration_theme: "Тема илустрације",
+    theme_auto: "Аутоматски (сунце)",
+    theme_day: "Дан",
+    theme_night: "Ноћ",
     zoom_in: "Прикажи пуну картицу",
     zoom_out: "Прикажи компактну картицу",
   },
@@ -950,6 +995,11 @@ const STRINGS = {
     lang_auto: "Automatski",
     zoom: "Dugme za detalje",
     zoom_helper: "Dugme gore desno koje prebacuje mini karticu na punu karticu i nazad",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Automatski (sunce)",
+    theme_day: "Dan",
+    theme_night: "Noć",
     zoom_in: "Prikaži punu karticu",
     zoom_out: "Prikaži kompaktnu karticu",
   },
@@ -1044,6 +1094,11 @@ const STRINGS = {
     lang_auto: "Automat",
     zoom: "Buton detalii",
     zoom_helper: "Buton din dreapta sus care comută mini cardul la cardul complet și înapoi",
+    illustration: "Ilustrație animată",
+    illustration_theme: "Tema ilustrației",
+    theme_auto: "Automat (soare)",
+    theme_day: "Zi",
+    theme_night: "Noapte",
     zoom_in: "Afișează cardul complet",
     zoom_out: "Afișează cardul compact",
   },
@@ -1138,6 +1193,11 @@ const STRINGS = {
     lang_auto: "Automatisk",
     zoom: "Detaljeknap",
     zoom_helper: "Knap øverst til højre, der skifter minikortet til det fulde kort og tilbage",
+    illustration: "Animeret illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatisk (sol)",
+    theme_day: "Dag",
+    theme_night: "Nat",
     zoom_in: "Vis det fulde kort",
     zoom_out: "Vis det kompakte kort",
   },
@@ -1232,6 +1292,11 @@ const STRINGS = {
     lang_auto: "Automatiskt",
     zoom: "Detaljknapp",
     zoom_helper: "Knapp uppe till höger som växlar minikortet till hela kortet och tillbaka",
+    illustration: "Animerad illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatiskt (sol)",
+    theme_day: "Dag",
+    theme_night: "Natt",
     zoom_in: "Visa hela kortet",
     zoom_out: "Visa det kompakta kortet",
   },
@@ -1326,6 +1391,11 @@ const STRINGS = {
     lang_auto: "Автоматично",
     zoom: "Бутон за детайли",
     zoom_helper: "Бутон горе вдясно, който превключва мини картата към пълната карта и обратно",
+    illustration: "Анимирана илюстрация",
+    illustration_theme: "Тема на илюстрацията",
+    theme_auto: "Автоматично (слънце)",
+    theme_day: "Ден",
+    theme_night: "Нощ",
     zoom_in: "Покажи пълната карта",
     zoom_out: "Покажи компактната карта",
   },
@@ -1420,6 +1490,11 @@ const STRINGS = {
     lang_auto: "Автоматически",
     zoom: "Кнопка подробностей",
     zoom_helper: "Кнопка в правом верхнем углу, переключающая мини-карточку на полную и обратно",
+    illustration: "Анимированная иллюстрация",
+    illustration_theme: "Тема иллюстрации",
+    theme_auto: "Автоматически (солнце)",
+    theme_day: "День",
+    theme_night: "Ночь",
     zoom_in: "Показать полную карточку",
     zoom_out: "Показать компактную карточку",
   },
@@ -1514,6 +1589,11 @@ const STRINGS = {
     lang_auto: "Автоматично",
     zoom: "Кнопка деталей",
     zoom_helper: "Кнопка вгорі праворуч, що перемикає міні-картку на повну й назад",
+    illustration: "Анімована ілюстрація",
+    illustration_theme: "Тема ілюстрації",
+    theme_auto: "Автоматично (сонце)",
+    theme_day: "День",
+    theme_night: "Ніч",
     zoom_in: "Показати повну картку",
     zoom_out: "Показати компактну картку",
   },
@@ -1608,6 +1688,11 @@ const STRINGS = {
     lang_auto: "Automatikus",
     zoom: "Részletek gomb",
     zoom_helper: "Jobb felső gomb, amely a mini kártyát a teljes kártyára váltja és vissza",
+    illustration: "Animált illusztráció",
+    illustration_theme: "Az illusztráció témája",
+    theme_auto: "Automatikus (nap)",
+    theme_day: "Nappal",
+    theme_night: "Éjszaka",
     zoom_in: "Teljes kártya megjelenítése",
     zoom_out: "Kompakt kártya megjelenítése",
   },
@@ -1702,6 +1787,11 @@ const STRINGS = {
     lang_auto: "Automaticky",
     zoom: "Tlačidlo detailu",
     zoom_helper: "Tlačidlo vpravo hore, ktoré prepína minikartu na úplnú kartu a späť",
+    illustration: "Animovaná ilustrácia",
+    illustration_theme: "Téma ilustrácie",
+    theme_auto: "Automaticky (slnko)",
+    theme_day: "Deň",
+    theme_night: "Noc",
     zoom_in: "Zobraziť úplnú kartu",
     zoom_out: "Zobraziť kompaktnú kartu",
   },
@@ -1796,6 +1886,11 @@ const STRINGS = {
     lang_auto: "Automaticky",
     zoom: "Tlačítko detailu",
     zoom_helper: "Tlačítko vpravo nahoře, které přepíná minikartu na úplnou kartu a zpět",
+    illustration: "Animovaná ilustrace",
+    illustration_theme: "Motiv ilustrace",
+    theme_auto: "Automaticky (slunce)",
+    theme_day: "Den",
+    theme_night: "Noc",
     zoom_in: "Zobrazit úplnou kartu",
     zoom_out: "Zobrazit kompaktní kartu",
   },
@@ -1890,6 +1985,11 @@ const STRINGS = {
     lang_auto: "Samodejno",
     zoom: "Gumb za podrobnosti",
     zoom_helper: "Gumb zgoraj desno, ki preklopi mini kartico na polno kartico in nazaj",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Samodejno (sonce)",
+    theme_day: "Dan",
+    theme_night: "Noč",
     zoom_in: "Prikaži polno kartico",
     zoom_out: "Prikaži kompaktno kartico",
   },
@@ -1984,6 +2084,11 @@ const STRINGS = {
     lang_auto: "Automātiski",
     zoom: "Detaļu poga",
     zoom_helper: "Poga augšējā labajā stūrī, kas pārslēdz mini karti uz pilno karti un atpakaļ",
+    illustration: "Animēta ilustrācija",
+    illustration_theme: "Ilustrācijas motīvs",
+    theme_auto: "Automātiski (saule)",
+    theme_day: "Diena",
+    theme_night: "Nakts",
     zoom_in: "Rādīt pilno karti",
     zoom_out: "Rādīt kompakto karti",
   },
@@ -2078,6 +2183,11 @@ const STRINGS = {
     lang_auto: "Αυτόματα",
     zoom: "Κουμπί λεπτομερειών",
     zoom_helper: "Κουμπί πάνω δεξιά που αλλάζει τη μίνι κάρτα στην πλήρη κάρτα και πίσω",
+    illustration: "Κινούμενη εικονογράφηση",
+    illustration_theme: "Θέμα εικονογράφησης",
+    theme_auto: "Αυτόματα (ήλιος)",
+    theme_day: "Ημέρα",
+    theme_night: "Νύχτα",
     zoom_in: "Εμφάνιση πλήρους κάρτας",
     zoom_out: "Εμφάνιση συμπαγούς κάρτας",
   },
@@ -2088,6 +2198,8 @@ const STRINGS = {
 // ---------------------------------------------------------------------------
 
 const ICONS = {
+  // Material Design Icons "battery-charging-outline": the banner's badge.
+  ups_mdi: "M16 20H8V6h8m.67-2H15V2H9v2H7.33A1.33 1.33 0 006 5.33v15.34C6 21.4 6.6 22 7.33 22h9.34A1.33 1.33 0 0018 20.67V5.33C18 4.6 17.4 4 16.67 4M11 18v-4H9l4-7v4h2l-4 7z",
   ups: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4zm6.5 2L9 12.5h2.6L10.5 18 15 11.2h-2.6z",
   battery: "M9.5 2h5v2H16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h1.5z",
   clock: "M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-.75 3h1.5v5.3l4.4 2.6-.75 1.3-5.15-3.05z",
@@ -2552,6 +2664,73 @@ const PICTURE_STYLE = `
 `;
 
 // ---------------------------------------------------------------------------
+// Illustrated header ("banner"): the UPS in its technical room
+// ---------------------------------------------------------------------------
+
+// Night picture: forced by illustration_theme, else the sun below the horizon, else Home Assistant's dark mode.
+const isNight = (hass, config) => {
+  if (config.illustration_theme === "night") return true;
+  if (config.illustration_theme === "day") return false;
+  const sun = hass?.states?.["sun.sun"];
+  if (sun && !["unknown", "unavailable", ""].includes(sun.state)) return sun.state === "below_horizon";
+  return !!hass?.themes?.darkMode;
+};
+
+// The banner picture, 200 × 80 drawn at the right of the banner (preserveAspectRatio xMaxYMax): a technical room
+// wall with its cable tray and a small network box, then the card's own UPS (upsSvg, its state and animations),
+// drawn big, standing on the 10 px ground strip under the banner. `uid` keeps each card's gradient apart.
+const UPS_SCALE = 0.86;
+const upsScene = (uid, key, pct) => {
+  const ty = 80 - 94 * UPS_SCALE;
+  const tx = 197 - 121 * UPS_SCALE;
+  const ups = upsSvg(key, pct).replace("<svg ", '<svg width="124" height="100" ');
+  return `<svg class="scene" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <defs><radialGradient id="uc-shadow-${uid}"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+    <g class="uc-wall">${[20, 40, 60].map((y) => `<line x1="0" y1="${y}" x2="200" y2="${y}"/>`).join("")}</g>
+    <path class="uc-tray" d="M0 8H200"/>
+    <path class="uc-wire" d="M10 8V40"/>
+    <rect class="uc-box" x="18" y="20" width="22" height="16" rx="2"/>
+    <circle class="uc-led" cx="24" cy="28" r="1.4"/><circle class="uc-led late" cx="29" cy="28" r="1.4"/>
+    <ellipse cx="${(tx + 62 * UPS_SCALE).toFixed(1)}" cy="79.5" rx="34" ry="2.6" fill="url(#uc-shadow-${uid})"/>
+    <g transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${UPS_SCALE})">${ups}</g>
+  </svg>`;
+};
+
+const BANNER_STYLE = `
+  .banner { position: relative; overflow: hidden; height: 90px; --g: 10px; --sw: min(200px, 54cqw);
+            background: #e7eaee; --sky-text: #0d2a45; --sky-muted: #3b5b78; }
+  .banner.night { background: #232a36; --sky-text: #fff; --sky-muted: rgba(255,255,255,.78); }
+  .banner .scene { position: absolute; right: 0; bottom: var(--g); height: calc(100% - var(--g)); width: var(--sw); overflow: visible; }
+  .banner .ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--g); background: #9aa1a9; box-shadow: inset 0 2px 0 #b5bbc2; }
+  .banner.night .ground { background: #2c323b; box-shadow: inset 0 2px 0 #39414c; }
+  .uc-wall line { stroke: #d6dbe1; stroke-width: .8; } .night .uc-wall line { stroke: #2e3746; }
+  .uc-tray { stroke: #c4cbd3; stroke-width: 3; } .night .uc-tray { stroke: #3a4456; }
+  .uc-wire { fill: none; stroke: #2f80ed; stroke-width: 1.6; stroke-dasharray: 3 4; animation: uc-wire 1s linear infinite; }
+  .uc-box { fill: #fff; stroke: #c4cbd3; } .night .uc-box { fill: #2e3746; stroke: #455066; }
+  .uc-led { fill: #43c463; animation: uc-led 1.2s steps(2) infinite; } .uc-led.late { animation-delay: .4s; }
+  @keyframes uc-wire { to { stroke-dashoffset: -14; } }
+  @keyframes uc-led { 50% { opacity: .2; } }
+  .banner .ups { overflow: visible; }
+  .night .ups .case { stroke: #55606e; } .night .ups .edge { fill: #4b5460; }
+  /* Title and state on the wall at the left, the scene at the right. */
+  .banner .head { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: var(--sw); display: flex; align-items: center;
+                  gap: 10px; padding: 8px 8px 8px 14px; color: var(--sky-text); min-width: 0; }
+  .banner .titles { flex: 1 1 auto; min-width: 0; }
+  .banner .name { font-size: 16px; font-weight: 500; }
+  .banner .sub { font-size: 13px; color: var(--sky-muted); }
+  /* The round badge: the MDI UPS icon in the state color, the integration's logo at its bottom right. */
+  .banner .type-icon { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-tint) 28%, transparent); }
+  .banner .type-icon .icon.type { fill: color-mix(in srgb, var(--uc-tint) 82%, #0d2a45); }
+  .banner.night .type-icon { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+  .banner.night .type-icon .icon.type { fill: color-mix(in srgb, var(--uc-tint) 75%, #fff); }
+  .banner .type-icon .logo { padding: 2px; box-sizing: border-box; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }
+  .banner .zoom { position: absolute; z-index: 2; top: 6px; right: 6px; margin: 0; color: #10283f; background: rgba(255,255,255,.55); border-color: rgba(16,40,63,.15); }
+  .banner.night .zoom { color: #fff; background: rgba(10,20,40,.45); border-color: rgba(255,255,255,.2); }
+  /* Narrow card: no room for the scene beside the text, the wall alone stays. */
+  @container (max-width: 200px) { .banner .scene { display: none; } .banner .head { right: 30px; } }
+`;
+
+// ---------------------------------------------------------------------------
 // Styles
 // ---------------------------------------------------------------------------
 
@@ -2787,9 +2966,12 @@ const CHARGING_WINDOW_MS = 12 * 3600 * 1000;
 // Cards
 // ---------------------------------------------------------------------------
 
+let _ucUid = 0;
+
 class UpsBase extends HTMLElement {
   constructor() {
     super();
+    this._uid = ++_ucUid;
     this.attachShadow({ mode: "open" });
     this._html = "";
     holdUnderPress(this, () => this._update());
@@ -2824,7 +3006,7 @@ class UpsBase extends HTMLElement {
     const { dev } = findDevice(h, this._config);
     if (!dev) return null;
     const ids = Object.values(dev.entities);
-    return [h.entities, h.devices, h.language, h.locale, h.formatEntityState, h.themes?.darkMode, this._history, this._minute, ...ids.map((id) => h.states[id])];
+    return [h.entities, h.devices, h.language, h.locale, h.formatEntityState, h.themes?.darkMode, h.states["sun.sun"]?.state, this._history, this._minute, ...ids.map((id) => h.states[id])];
   }
 
   connectedCallback() {
@@ -3162,10 +3344,10 @@ class UpsBase extends HTMLElement {
 
   // ---- Parts -------------------------------------------------------------
 
-  _logo(dev, cls) {
+  _logo(dev, cls, path = ICONS.ups) {
     const src = SOURCES[dev.source];
     const badge = src ? `<img class="logo" src="${src.logo}" alt="${esc(src.name)}">` : "";
-    const icon = svgIcon(ICONS.ups, "type");
+    const icon = svgIcon(path, "type");
     return src
       ? `<a class="type-icon ${cls}" href="${src.site}" target="_blank" rel="noopener noreferrer" title="${esc(src.name)}">${icon}${badge}</a>`
       : `<span class="type-icon ${cls}">${icon}</span>`;
@@ -3175,7 +3357,12 @@ class UpsBase extends HTMLElement {
     return [dev.manufacturer, dev.model].filter(Boolean).join(" ");
   }
 
+  _illustrated() {
+    return this._config.illustration !== false;
+  }
+
   _header(dev, st, sub) {
+    if (this._illustrated()) return this._banner(dev, st);
     const cls = STATE_CLASS[st.key];
     const chip = st.entity
       ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(st.entity)}" title="${esc(st.text)}" aria-label="${esc(st.text)}"><span class="dot"></span><span class="chip-text">${esc(st.text)}</span></span>`
@@ -3192,6 +3379,36 @@ class UpsBase extends HTMLElement {
       </div>`;
   }
 
+  // The illustrated header: the icon, the name and the state on the wall, the UPS drawn big at the right (its
+  // state and animations), day or night. The state (with the runtime left on battery, else the charge) replaces the
+  // status chip and opens its entity; the manufacturer and model stay in the name's tooltip.
+  _banner(dev, st) {
+    const cls = STATE_CLASS[st.key];
+    const b = this._battery(dev);
+    const rt = this._runtime(dev);
+    const L = this._locale();
+    const extra = isOnBattery(st.key) && rt.v !== null ? fmtDuration(rt.v, L) : b.v !== null ? fmtValue(b.v, "%", L) : "";
+    const text = [st.text, extra].filter(Boolean).join(" · ");
+    const sub = st.entity
+      ? `<div class="sub clickable" role="button" tabindex="0" data-entity="${esc(st.entity)}" aria-label="${esc(text)}">${esc(text)}</div>`
+      : `<div class="sub">${esc(text)}</div>`;
+    const name = this._config.title || dev.name;
+    const model = this._subtitle(dev);
+    return `
+      <div class="banner${isNight(this._hass, this._config) ? " night" : ""}">
+        ${upsScene(this._uid, st.key, b.v)}
+        <div class="head">
+          ${this._logo(dev, cls, ICONS.ups_mdi)}
+          <div class="titles">
+            <div class="name" title="${esc(model ? `${name} · ${model}` : name)}">${esc(name)}</div>
+            ${sub}
+          </div>
+        </div>
+        <div class="ground"></div>
+        ${this._zoomButton()}
+      </div>`;
+  }
+
   _zoomButton() {
     return "";
   }
@@ -3200,6 +3417,15 @@ class UpsBase extends HTMLElement {
     const label = esc(`${dev.name}: ${st.text}`);
     const attrs = st.entity ? ` clickable" role="button" tabindex="0" aria-label="${label}" data-entity="${esc(st.entity)}"` : `" role="img" aria-label="${label}"`;
     return `<div class="picture${attrs}>${upsSvg(st.key, this._battery(dev).v)}</div>`;
+  }
+
+  _bannerStyle() {
+    return this._illustrated() ? BANNER_STYLE : "";
+  }
+
+  // The UPS picture beside the battery, when it is not drawn in the illustrated header.
+  _heroPicture(dev, st) {
+    return this._illustrated() ? "" : this._picture(dev, st);
   }
 
   _alertsHtml(alerts) {
@@ -3269,7 +3495,7 @@ class UpsCard extends UpsBase {
     if (c.show_power !== false) parts.push(this._powerSection(dev));
     if (c.show_battery !== false) parts.push(this._batterySection(dev));
     if (c.show_outages !== false) parts.push(this._outagesSection(dev));
-    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}</style>
+    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${this._bannerStyle()}</style>
       <ha-card>
         ${this._header(dev, st, this._subtitle(dev))}
         <div class="content">${parts.filter(Boolean).join("")}</div>
@@ -3287,7 +3513,7 @@ class UpsCard extends UpsBase {
             <div class="bar ${b.cls}"><div style="width:${Math.max(0, Math.min(100, b.v))}%"></div></div>
           </div>`;
     return `<div class="hero">
-        ${this._picture(dev, st)}
+        ${this._heroPicture(dev, st)}
         <div class="info">${batt}${this._runtimeLine(dev)}${this._loadLine(dev)}</div>
       </div>`;
   }
@@ -3489,12 +3715,12 @@ class UpsMiniCard extends UpsCard {
         ? ""
         : `<div class="batt clickable ${b.cls}" role="button" tabindex="0" data-entity="${esc(b.id)}" aria-label="${esc(`${this._t("battery")} ${Math.round(b.v)} %`)}">${svgIcon(ICONS.battery)}<div class="bar ${b.cls}"><div style="width:${Math.max(0, Math.min(100, b.v))}%"></div></div><span class="v">${esc(fmtValue(b.v, "%", L))}</span></div>`;
     const alert = this._alerts(dev, st)[0];
-    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${MINI_STYLE}</style>
+    return `<style>${BASE_STYLE}${PICTURE_STYLE}${FULL_STYLE}${MINI_STYLE}${this._bannerStyle()}</style>
       <ha-card>
         ${this._header(dev, st, "")}
         <div class="content">
           <div class="row">
-            ${this._picture(dev, st)}
+            ${this._heroPicture(dev, st)}
             <div class="info">${batt}${this._runtimeLine(dev)}${this._loadLine(dev)}</div>
           </div>
           ${alert ? this._alertsHtml([alert]) : ""}
@@ -3539,6 +3765,7 @@ class UpsEditorBase extends HTMLElement {
       ["show_title", true],
       ["show_subtitle", true],
       ["show_alerts", true],
+      ["illustration", true],
     ];
   }
 
@@ -3547,7 +3774,7 @@ class UpsEditorBase extends HTMLElement {
   }
 
   static get defaults() {
-    return {};
+    return { illustration_theme: "auto" };
   }
 
   setConfig(config) {
@@ -3566,6 +3793,10 @@ class UpsEditorBase extends HTMLElement {
       { name: "device", selector: { select: { mode: "dropdown", options: [{ value: "", label: tr("device_none") }, ...listDevices(this._hass)] } } },
       { name: "title", selector: { text: {} } },
       { type: "grid", name: "", schema: this.constructor.toggles.map(([name]) => ({ name, selector: { boolean: {} } })) },
+      {
+        name: "illustration_theme",
+        selector: { select: { mode: "dropdown", options: ["auto", "day", "night"].map((value) => ({ value, label: tr(`theme_${value}`) })) } },
+      },
       ...this.constructor.extraFields(tr),
       {
         type: "expandable",
@@ -3637,7 +3868,7 @@ class UpsCardEditor extends UpsEditorBase {
   }
 
   static get defaults() {
-    return { collapsed: DEFAULT_COLLAPSED, ...DEFAULTS };
+    return { ...UpsEditorBase.defaults, collapsed: DEFAULT_COLLAPSED, ...DEFAULTS };
   }
 
   static extraFields(tr) {

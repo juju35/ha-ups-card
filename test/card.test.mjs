@@ -483,7 +483,7 @@ test("no rewrite under a press: drawn after its release, and at once by its clic
   assert.equal(card._pressing, false);
 });
 
-test("illustrated header: banner with the UPS, night from the sun or the theme option, classic header on demand", () => {
+test("illustrated header: banner with the UPS, night from the theme alone or the theme option, classic header on demand", () => {
   const sun = (state) => ({ "sun.sun": { entity_id: "sun.sun", state, attributes: {}, last_changed: "", last_updated: "" } });
   const day = html(newCard({}, makeHass({ ...moved(states), ...sun("above_horizon") })));
   assert.match(day, /<div class="banner">/);
@@ -491,13 +491,15 @@ test("illustrated header: banner with the UPS, night from the sun or the theme o
   assert.match(day, /class="ups s-online ok"/);
   assert.equal((day.match(/class="ups /g) || []).length, 1, "the UPS is drawn once, in the banner");
   assert.match(day, /class="chip ok[^"]*"[^>]*>.*?chip-text">On mains</s);
-  const night = html(newCard({}, makeHass({ ...moved(states), ...sun("below_horizon") })));
+  // After sunset, a light theme keeps the day picture; a dark one shows the night.
+  assert.match(html(newCard({}, makeHass({ ...moved(states), ...sun("below_horizon") }))), /<div class="banner">/);
+  const night = html(newCard({}, makeHass({ ...moved(states), ...sun("below_horizon") }, { themes: { darkMode: true } })));
   assert.match(night, /<div class="banner night">/);
   assert.match(html(newCard({ illustration_theme: "day" }, makeHass({ ...moved(states), ...sun("below_horizon") }))), /<div class="banner">/);
   assert.match(html(newCard({ illustration_theme: "night" }, makeHass({ ...moved(states), ...sun("above_horizon") }))), /<div class="banner night">/);
   // No sun: Home Assistant's dark theme.
   assert.match(html(newCard({}, makeHass(moved(states), { themes: { darkMode: true } }))), /<div class="banner night">/);
-  // The dark theme gives the night picture even while the sun is up; a light theme keeps the day; forced wins.
+  // The dark theme gives the night picture, even while the sun is up; a light theme keeps the day; forced wins.
   const up = (darkMode) => makeHass({ ...moved(states), ...sun("above_horizon") }, { themes: { darkMode } });
   assert.match(html(newCard({}, up(true))), /<div class="banner night">/);
   assert.match(html(newCard({}, up(false))), /<div class="banner">/);

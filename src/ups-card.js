@@ -2988,6 +2988,56 @@ const focusKey = (el) => {
   return data.length ? `${el.tagName}|${JSON.stringify(data)}` : "";
 };
 
+// ---------------------------------------------------------------------------
+// Shadow DOM patching: a new render is applied in place (kept nodes keep their running animations, hover and
+// focus) instead of replacing the whole shadow root. Nodes carrying a data-key are matched by it, the others by
+// position. Repo-local on purpose (the ha-* repos share no code).
+// ---------------------------------------------------------------------------
+
+const patchAttrs = (cur, next) => {
+  for (const { name } of [...cur.attributes]) if (!next.hasAttribute(name)) cur.removeAttribute(name);
+  for (const { name, value } of next.attributes) if (cur.getAttribute(name) !== value) cur.setAttribute(name, value);
+};
+const keyOf = (n) => (n.nodeType === 1 ? n.getAttribute("data-key") : null);
+const sameNode = (a, b) => !!a && a.nodeType === b.nodeType && a.nodeName === b.nodeName;
+const patchChildren = (cur, next) => {
+  const old = [...cur.childNodes];
+  const fresh = [...next.childNodes];
+  const byKey = new Map();
+  for (const o of old) {
+    const k = keyOf(o);
+    if (k !== null && !byKey.has(k)) byKey.set(k, o);
+  }
+  const used = new Set();
+  fresh.forEach((n, i) => {
+    const k = keyOf(n);
+    let o = k !== null ? byKey.get(k) : old[i];
+    if (!sameNode(o, n) || used.has(o) || (k === null && keyOf(o) !== null)) o = null;
+    const ref = cur.childNodes[i] ?? null;
+    if (!o) {
+      cur.insertBefore(n, ref);
+      return;
+    }
+    used.add(o);
+    if (o !== ref) cur.insertBefore(o, ref);
+    if (n.nodeType === 1) {
+      patchAttrs(o, n);
+      patchChildren(o, n);
+    } else if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue;
+  });
+  while (cur.childNodes.length > fresh.length) cur.removeChild(cur.lastChild);
+};
+// The first render (an empty root) is written at once; the next ones are patched in place.
+const morph = (root, html) => {
+  if (!root.childNodes?.length) {
+    root.innerHTML = html;
+    return;
+  }
+  const tpl = document.createElement("template");
+  tpl.innerHTML = html;
+  patchChildren(root, tpl.content);
+};
+
 const sameDeps = (a, b) => !!a && a.length === b.length && a.every((d, i) => d === b[i]);
 const HISTORY_REFRESH_MS = 15 * 60 * 1000;
 // How long after the mains came back a battery not full reads "Charging" when the UPS does not say it.
@@ -3103,6 +3153,16 @@ class UpsBase extends HTMLElement {
   // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
   // beside the title (.titles.dotonly). Measured in fractional pixels.
   _fitPill() {
+    // A <ha-card> just created has not laid out its own shadow DOM yet: measured then, everything is 0 px wide and
+    // the pill lands on the wrong line. Fitted once it has rendered.
+    const haCard = this.shadowRoot?.querySelector?.("ha-card");
+    if (haCard && haCard.hasUpdated === false) {
+      this._pillWait ??= (haCard.updateComplete?.then ? haCard.updateComplete : new Promise((r) => requestAnimationFrame(r))).then(() => {
+        this._pillWait = null;
+        this._fitPill();
+      });
+      return;
+    }
     for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
       const row = t.querySelector(".trow");
       const chips = row ? [...row.querySelectorAll(":scope > .chip")] : [];
@@ -3167,7 +3227,7 @@ class UpsBase extends HTMLElement {
     if (html !== this._html) {
       const kept = this._focusedSpot();
       this._html = html;
-      this.shadowRoot.innerHTML = html;
+      morph(this.shadowRoot, html);
       this._fitPill();
       if (kept) this._restoreFocus(kept);
     }

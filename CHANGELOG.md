@@ -5,6 +5,9 @@
 ### Fixes
 - The status pill's pending fit is dropped when the card leaves the page (another view, a conditional card hidden).
 
+### Performance
+- The card is patched in place on every update instead of rewriting its whole shadow DOM: the illustration's animations (power flow, LED, gauge) no longer restart and the hover stays when a value changes; the status pill is fitted once `<ha-card>` has rendered.
+
 ## 1.1.1 - 2026-11-18
 
 ### Fixes

@@ -3075,6 +3075,7 @@ class UpsBase extends HTMLElement {
     this._tick = null;
     this._outside?.off();
     this._resize?.disconnect();
+    if (typeof cancelAnimationFrame === "function") cancelAnimationFrame(this._fitFrame);
     this._fitWidth = null;
     this._dropPress();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, so that the card does not

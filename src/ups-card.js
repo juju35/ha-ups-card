@@ -2534,15 +2534,19 @@ const _cache = new WeakMap();
 const resolve = (hass) => {
   if (!hass?.entities || !hass.devices) return null;
   const cached = _cache.get(hass.entities);
-  if (cached && cached.devices === hass.devices) return cached.list;
+  // An entity read by its device class (no translation key) whose state had not come yet: resolved again once it has.
+  if (cached && cached.devices === hass.devices && !cached.waiting.some((id) => hass.states?.[id])) return cached.list;
   const byDevice = new Map();
+  const waiting = [];
   for (const e of Object.values(hass.entities)) {
     const src = SOURCES[e.platform];
     if (!src || !e.device_id || e.hidden) continue;
     const domain = e.entity_id.split(".")[0];
     if (domain !== "sensor" && domain !== "binary_sensor") continue;
     const tk = e.translation_key;
-    const dc = hass.states?.[e.entity_id]?.attributes?.device_class;
+    const st = hass.states?.[e.entity_id];
+    const dc = st?.attributes?.device_class;
+    if (!tk && !st) waiting.push(e.entity_id);
     const key =
       (domain === "binary_sensor" ? src.keys[`bs:${tk}`] : tk && !src.keys[`bs:${tk}`] ? src.keys[tk] : undefined) ??
       (!tk && dc ? src.keys[`dc:${dc}`] : undefined);
@@ -2558,7 +2562,7 @@ const resolve = (hass) => {
     list.push({ id, name: d.name_by_user || d.name || id, manufacturer: d.manufacturer || "", model: d.model || "", ...item });
   }
   list.sort((a, b) => a.name.localeCompare(b.name));
-  _cache.set(hass.entities, { devices: hass.devices, list });
+  _cache.set(hass.entities, { devices: hass.devices, list, waiting });
   return list;
 };
 

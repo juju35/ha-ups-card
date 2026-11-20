@@ -4,6 +4,7 @@
 
 ### Fixes
 - The status pill's pending fit is dropped when the card leaves the page (another view, a conditional card hidden).
+- A UPS sensor found by its device class (no translation key) whose state arrives after the registries is now picked up then, not only at the next registry change.
 
 ### Performance
 - The card is patched in place on every update instead of rewriting its whole shadow DOM: the illustration's animations (power flow, LED, gauge) no longer restart and the hover stays when a value changes; the status pill is fitted once `<ha-card>` has rendered.

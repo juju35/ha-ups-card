@@ -108,6 +108,20 @@ test("NUT statuses, their readable form, apcupsd statuses and plain words are un
   for (const k of uc.STATES) assert.ok(uc.STATE_CLASS[k], k);
 });
 
+test("an entity found by its device class whose state comes after the registry is picked up once it has", () => {
+  const id = "sensor.onduleur_bureau_puissance_apparente";
+  const reg = { ...entities };
+  const early = { ...moved(states) };
+  delete early[id];
+  const first = uc.resolve({ ...makeHass(early), entities: reg });
+  assert.equal(first.find((d) => d.source === "nut").entities.apparent_power, undefined);
+  // Same registries, the state arrived: resolved again.
+  const later = uc.resolve({ ...makeHass(), entities: reg });
+  assert.equal(later.find((d) => d.source === "nut").entities.apparent_power, id);
+  // Nothing waiting any more: the cached list is reused.
+  assert.equal(uc.resolve({ ...makeHass(), entities: reg }), later);
+});
+
 test("the UPS devices of NUT and apcupsd are found through the registries, other devices are skipped", () => {
   const list = uc.resolve(makeHass());
   assert.deepEqual(

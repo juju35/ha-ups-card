@@ -4073,7 +4073,7 @@ for (const card of [
   },
   { type: "ups-mini-card", name: "UPS Mini Card", description: "Compact UPS overview: state, battery, runtime and load, with a detail button." },
 ]) {
-  if (!window.customCards.some((c) => c.type === card.type)) window.customCards.push({ ...card, preview: true, documentationURL: "https://github.com/juju35/ha-ups-card" });
+  if (!window.customCards.some((c) => c.type === card.type)) window.customCards.push({ ...card, preview: false, documentationURL: "https://github.com/juju35/ha-ups-card" });
 }
 
 console.info(`%c UPS-CARD %c v${VERSION} `, "color: white; background: #2e7d32; font-weight: 700;", "color: #2e7d32; background: white; font-weight: 700;");

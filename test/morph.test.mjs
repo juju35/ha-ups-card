@@ -2,11 +2,10 @@
 // change patches the shadow DOM instead of replacing it, so the illustration's nodes (and their running animations)
 // are kept, while the new values show; the status pill is fitted once <ha-card> has rendered.
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { devices, entities, NOW, states } from "../scripts/mock-states.mjs";
+import { source } from "./source.mjs";
 
-const source = readFileSync(new URL("../src/ups-card.js", import.meta.url), "utf8");
 
 let chromium;
 try {
